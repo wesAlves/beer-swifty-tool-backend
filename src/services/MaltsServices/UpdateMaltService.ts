@@ -1,9 +1,9 @@
 import { request } from "express";
 import { getCustomRepository } from "typeorm";
 
-import Malt from "../models/Malt";
+import Malt from "../../models/Malt";
 
-import MaltsRepository from "../repositories/MaltsRepository";
+import MaltsRepository from "../../repositories/MaltsRepository";
 
 interface Request {
   id: string;
@@ -27,9 +27,9 @@ class UpdateMaltService {
       maltPotential,
     });
 
-    const updatedMalt = await maltsRepository.findOne({ id: `${id}` });
+    const updatedMalt = await maltsRepository.find({ id: `${id}` });
 
-    return updatedMalt;
+    return updatedMalt[0];
   }
 }
 

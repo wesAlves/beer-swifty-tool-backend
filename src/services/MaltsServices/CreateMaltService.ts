@@ -1,8 +1,8 @@
 import { getCustomRepository } from "typeorm";
 
-import Malt from "../models/Malt";
+import Malt from "../../models/Malt";
 
-import MaltsRepository from "../repositories/MaltsRepository";
+import MaltsRepository from "../../repositories/MaltsRepository";
 
 interface Request {
   maltName: string;

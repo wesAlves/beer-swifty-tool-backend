@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 
 // import AppError from "../errors/AppErrors";
 
-import MaltsRepository from "../repositories/MaltsRepository";
+import MaltsRepository from "../../repositories/MaltsRepository";
 
 class DeleteMaltService {
   public async execute(id: string): Promise<void> {

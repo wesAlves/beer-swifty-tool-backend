@@ -2,9 +2,9 @@ import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 
 import MaltsRepository from "../repositories/MaltsRepository";
-import CreateMaltService from "../services/CreateMaltService";
-import UpdateMaltService from "../services/UpdateMaltService";
-import DeleteMaltService from "../services/DeleteMaltService";
+import CreateMaltService from "../services/MaltsServices/CreateMaltService";
+import UpdateMaltService from "../services/MaltsServices/UpdateMaltService";
+import DeleteMaltService from "../services/MaltsServices/DeleteMaltService";
 
 const maltsRouter = Router();
 

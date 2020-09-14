@@ -1,4 +1,4 @@
-import { response, Router } from "express";
+import { Router } from "express";
 import { getCustomRepository } from "typeorm";
 
 import MaltsRepository from "../repositories/MaltsRepository";

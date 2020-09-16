@@ -12,13 +12,13 @@ class Hop {
   id: string;
 
   @Column()
-  hopName: string;
+  hop_name: string;
 
   @Column("decimal")
-  hopAlphaAcid: number;
+  hop_alpha_accid: number;
 
   @Column()
-  hopType: string;
+  hop_type: string;
 
   @CreateDateColumn()
   created_at: Date;

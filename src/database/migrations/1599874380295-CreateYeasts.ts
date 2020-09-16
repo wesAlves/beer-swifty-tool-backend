@@ -14,7 +14,7 @@ export class CreateYeasts1599874380295 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "yeastName",
+            name: "yeast_name",
             type: "varchar",
             isNullable: false,
           },

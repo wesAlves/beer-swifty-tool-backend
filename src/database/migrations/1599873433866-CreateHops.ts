@@ -15,15 +15,15 @@ export class CreateHops1599873433866 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "hopName",
+            name: "hop_name",
             type: "varchar",
           },
           {
-            name: "hopType",
+            name: "hop_type",
             type: "varchar",
           },
           {
-            name: "hopAlphaAcid",
+            name: "hop_alpha_accid",
             type: "decimal",
           },
           {

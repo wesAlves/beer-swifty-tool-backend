@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
 @Entity("recipes")
 class Recipe {
@@ -6,19 +12,13 @@ class Recipe {
   id: string;
 
   @Column()
-  recipeName: string;
+  recipe_name: string;
 
-  @Column()
-  malt_id: string;
+  @CreateDateColumn()
+  created_at: Date;
 
-  @Column()
-  yeast_id: string;
-
-  @Column()
-  hop_id: string;
-
-  @Column()
-  recipes_user: string;
+  @UpdateDateColumn()
+  updated_at: Date;
 }
 
 export default Recipe;

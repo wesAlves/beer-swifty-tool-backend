@@ -2,11 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+
+import Recipe from "./Recipe";
 
 @Entity("users")
 class User {
@@ -20,16 +23,13 @@ class User {
   password: string;
 
   @Column()
-  name: string;
+  user_name: string;
 
   @Column()
   avatar_url: string;
 
   @Column()
   shop: boolean;
-
-  @OneToMany(() => recipesUser, (recipe_id) => recipe_id.id)
-  recipe_id: recipesUser[];
 
   @CreateDateColumn()
   created_at: Date;

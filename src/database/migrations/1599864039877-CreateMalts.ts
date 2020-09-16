@@ -14,16 +14,16 @@ export default class CreateMalts1599864039877 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "maltName",
+            name: "malt_name",
             type: "varchar",
           },
           {
-            name: "maltColor",
+            name: "malt_color",
             type: "decimal",
             isNullable: false,
           },
           {
-            name: "maltPotential",
+            name: "malt_potential",
             type: "decimal",
             isNullable: false,
           },

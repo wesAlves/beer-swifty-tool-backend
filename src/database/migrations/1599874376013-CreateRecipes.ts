@@ -14,7 +14,7 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "recipeName",
+            name: "recipe_name",
             type: "varchar",
             isNullable: false,
           },

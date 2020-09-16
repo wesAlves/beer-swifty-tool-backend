@@ -12,13 +12,13 @@ class Malt {
   id: string;
 
   @Column()
-  maltName: string;
+  malt_name: string;
 
   @Column("decimal")
-  maltColor: number;
+  malt_color: number;
 
   @Column("decimal")
-  maltPotential: number;
+  malt_potential: number;
 
   @CreateDateColumn()
   created_at: Date;

@@ -12,7 +12,7 @@ class Yeast {
   id: string;
 
   @Column()
-  yeastName: string;
+  yeast_name: string;
 
   @CreateDateColumn()
   created_at: Date;

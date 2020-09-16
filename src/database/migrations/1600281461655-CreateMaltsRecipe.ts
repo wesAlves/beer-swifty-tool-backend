@@ -19,7 +19,7 @@ export class CreateMaltsRecipe1600281461655 implements MigrationInterface {
           },
           {
             name: "malt_quantity",
-            type: "number",
+            type: "decimal",
           },
         ],
       })

@@ -18,15 +18,15 @@ export class CreateHopsRecipe1600281497339 implements MigrationInterface {
         },
         {
           name: "hop_quantity",
-          type: "number",
+          type: "decimal",
         },
         {
           name: "hop_add_type",
-          type: "number",
+          type: "decimal",
         },
         {
           name: "hop_add_time",
-          type: "number",
+          type: "decimal",
         },
       ],
     });

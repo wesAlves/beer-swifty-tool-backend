@@ -96,19 +96,19 @@
       "id": 1,
       "hop_name": "apollo",
       "hop_type": "bittering",
-      "accid": 13
+      "acid": 13
     },
     {
       "id": 2,
       "hop_name": "citra",
       "hop_type": "aroma",
-      "accid": 8
+      "acid": 8
     },
     {
       "id": 3,
       "hop_name": "cascade",
       "hop_type": "bittering/aroma",
-      "accid": 9
+      "acid": 9
     }
   ]
 }

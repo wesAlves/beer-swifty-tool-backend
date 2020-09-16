@@ -5,7 +5,7 @@ import Hop from "../../models/Hop";
 interface Request {
   id: string;
   hop_name: string;
-  hop_alpha_accid: number;
+  hop_alpha_acid: number;
   hop_type: string;
 }
 
@@ -13,14 +13,14 @@ class UpdateHopService {
   public async execute({
     id,
     hop_name,
-    hop_alpha_accid,
+    hop_alpha_acid,
     hop_type,
   }: Request): Promise<Hop> {
     const hopsRepository = getCustomRepository(HopsRepository);
 
     const hop = await hopsRepository.update(id, {
       hop_name,
-      hop_alpha_accid,
+      hop_alpha_acid,
       hop_type,
     });
 

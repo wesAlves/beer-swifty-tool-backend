@@ -6,21 +6,21 @@ import HopsRepository from "../../repositories/HopsRepository";
 
 interface Request {
   hop_name: string;
-  hop_alpha_accid: number;
+  hop_alpha_acid: number;
   hop_type: string;
 }
 
 class CreateHopService {
   public async execute({
     hop_name,
-    hop_alpha_accid,
+    hop_alpha_acid,
     hop_type,
   }: Request): Promise<Hop> {
     const hopsRepository = getCustomRepository(HopsRepository);
 
     const hop = hopsRepository.create({
       hop_name,
-      hop_alpha_accid,
+      hop_alpha_acid,
       hop_type,
     });
 

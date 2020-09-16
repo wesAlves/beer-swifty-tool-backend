@@ -23,7 +23,7 @@ export class CreateHops1599873433866 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "hop_alpha_accid",
+            name: "hop_alpha_acid",
             type: "decimal",
           },
           {

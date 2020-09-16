@@ -15,7 +15,7 @@ class Hop {
   hop_name: string;
 
   @Column("decimal")
-  hop_alpha_accid: number;
+  hop_alpha_acid: number;
 
   @Column()
   hop_type: string;

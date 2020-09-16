@@ -5,23 +5,23 @@ import Malt from "../../models/Malt";
 import MaltsRepository from "../../repositories/MaltsRepository";
 
 interface Request {
-  maltName: string;
-  maltColor: number;
-  maltPotential: number;
+  malt_name: string;
+  malt_color: number;
+  malt_potential: number;
 }
 
 class CreateMaltService {
   public async execute({
-    maltName,
-    maltColor,
-    maltPotential,
+    malt_name,
+    malt_color,
+    malt_potential,
   }: Request): Promise<Malt> {
     const maltsRepository = getCustomRepository(MaltsRepository);
 
     const malt = maltsRepository.create({
-      maltName,
-      maltColor,
-      maltPotential,
+      malt_name,
+      malt_color,
+      malt_potential,
     });
 
     await maltsRepository.save(malt);

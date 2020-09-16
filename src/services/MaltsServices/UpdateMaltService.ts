@@ -7,24 +7,24 @@ import MaltsRepository from "../../repositories/MaltsRepository";
 
 interface Request {
   id: string;
-  maltName: string;
-  maltColor: number;
-  maltPotential: number;
+  malt_name: string;
+  malt_color: number;
+  malt_potential: number;
 }
 
 class UpdateMaltService {
   public async execute({
     id,
-    maltName,
-    maltColor,
-    maltPotential,
+    malt_name,
+    malt_color,
+    malt_potential,
   }: Request): Promise<Malt> {
     const maltsRepository = getCustomRepository(MaltsRepository);
 
     const malt = await maltsRepository.update(id, {
-      maltName,
-      maltColor,
-      maltPotential,
+      malt_name,
+      malt_color,
+      malt_potential,
     });
 
     const updatedMalt = await maltsRepository.find({ id: `${id}` });

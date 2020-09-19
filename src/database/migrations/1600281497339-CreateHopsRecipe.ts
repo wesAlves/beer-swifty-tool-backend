@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from "typeorm";
 
 export class CreateHopsRecipe1600281497339 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -16,17 +21,26 @@ export class CreateHopsRecipe1600281497339 implements MigrationInterface {
           {
             name: "hop_id",
             type: "varchar",
+            isNullable: true,
+          },
+          {
+            name: "recipe_id",
+            type: "varchar",
+            isNullable: true,
           },
           {
             name: "hop_quantity",
             type: "decimal",
+            isNullable: true,
           },
           {
             name: "hop_add_type",
+            isNullable: true,
             type: "decimal",
           },
           {
             name: "hop_add_time",
+            isNullable: true,
             type: "decimal",
           },
         ],

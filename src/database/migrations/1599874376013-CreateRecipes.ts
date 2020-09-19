@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from "typeorm";
 
 export class CreateRecipes1599874376013 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -27,6 +32,11 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
             name: "updated_at",
             type: "timestamp",
             default: "now()",
+          },
+          {
+            name: "hops_recipe",
+            type: "varchar",
+            isNullable: true,
           },
         ],
       })

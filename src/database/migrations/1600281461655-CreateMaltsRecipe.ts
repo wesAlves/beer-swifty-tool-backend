@@ -16,10 +16,17 @@ export class CreateMaltsRecipe1600281461655 implements MigrationInterface {
           {
             name: "malt_id",
             type: "varchar",
+            isNullable: true,
+          },
+          {
+            name: "recipe_id",
+            type: "varchar",
+            isNullable: true,
           },
           {
             name: "malt_quantity",
             type: "decimal",
+            isNullable: true,
           },
         ],
       })

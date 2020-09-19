@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from "typeorm";
 import { uuid } from "uuidv4";
 
 export class CreateHops1599873433866 implements MigrationInterface {
@@ -35,6 +40,11 @@ export class CreateHops1599873433866 implements MigrationInterface {
             name: "updated_at",
             type: "timestamp",
             default: "now()",
+          },
+          {
+            name: "hops_recipe",
+            type: "varchar",
+            isNullable: true,
           },
         ],
       })

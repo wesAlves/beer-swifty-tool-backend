@@ -7,7 +7,7 @@ import CreateRecipeService from "../services/RecipeServices/CreateRecipe";
 const recipeRoutes = Router();
 
 recipeRoutes.post("/", async (request, response) => {
-  const { recipe_name, owner_id, hops, malts } = request.body;
+  const { recipe_name, owner_id, hops, malts, yeasts } = request.body;
 
   const createRecipe = new CreateRecipeService();
 
@@ -16,6 +16,7 @@ recipeRoutes.post("/", async (request, response) => {
     owner_id,
     hops,
     malts,
+    yeasts,
   });
 
   return response.json(recipe);

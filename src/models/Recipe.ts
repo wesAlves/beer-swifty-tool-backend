@@ -39,10 +39,10 @@ class Recipe {
   })
   malts_recipe: MaltsRecipe[];
 
-  // @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {
-  //   cascade: true,
-  // })
-  // hops_recipe: HopsRecipe[];
+  @OneToMany(() => YeastsRecipe, (yeasts_recipe) => yeasts_recipe.recipe_id, {
+    cascade: true,
+  })
+  yeasts_recipe: YeastsRecipe[];
 
   @CreateDateColumn()
   created_at: Date;

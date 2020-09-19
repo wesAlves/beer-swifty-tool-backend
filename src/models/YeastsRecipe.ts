@@ -1,22 +1,27 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+
 import Yeast from "./Yeast";
+import Recipe from "./Recipe";
 
 @Entity("yeasts_recipe")
 class YeastsRecipe {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @OneToMany(() => Yeast, (yeast) => yeast.id)
+  @ManyToOne(() => Yeast, (yeast) => yeast.yeasts_recipe)
+  @JoinColumn({ name: "yeast_id" })
   yeast_id: Yeast[];
 
-  @Column("decimal")
-  yeast_quantity: number;
-
-  @Column("decimal")
-  yeast_add_type: string;
-
-  @Column("int")
-  yeast_add_time: number;
+  @ManyToOne(() => Recipe, (recipe) => recipe.hops_recipe)
+  @JoinColumn({ name: "recipe_id" })
+  recipe_id: Recipe[];
 }
 
 export default YeastsRecipe;

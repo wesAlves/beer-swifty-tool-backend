@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, TableForeignKey } from "typeorm";
 
-export class CreateFkHopsRecipe1600440432759 implements MigrationInterface {
+export class CreateFkRecipeHops1600440432759 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createForeignKey(
       "hops_recipe",
@@ -41,7 +41,7 @@ export class CreateFkHopsRecipe1600440432759 implements MigrationInterface {
     await queryRunner.createForeignKey(
       "hops",
       new TableForeignKey({
-        name: "recipes_hops",
+        name: "hops_recipe",
         columnNames: ["hops_recipe"],
         referencedColumnNames: ["id"],
         referencedTableName: "hops_recipe",
@@ -52,9 +52,9 @@ export class CreateFkHopsRecipe1600440432759 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey("hops", "recipes_hops");
+    await queryRunner.dropForeignKey("hops", "hops_recipe");
     await queryRunner.dropForeignKey("recipes", "hops_recipe");
-    await queryRunner.dropForeignKey("hops_recipe", "hop_id");
+    await queryRunner.dropForeignKey("hops_recipe", "hops_id");
     await queryRunner.dropForeignKey("hops_recipe", "recipe_id");
   }
 }

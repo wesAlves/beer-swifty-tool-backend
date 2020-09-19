@@ -19,6 +19,11 @@ export class CreateYeasts1599874380295 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: "yeasts_recipe",
+            type: "varchar",
+            isNullable: true,
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",

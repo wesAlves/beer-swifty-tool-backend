@@ -13,9 +13,16 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
             generationStrategy: "uuid",
             default: "uuid_generate_v4()",
           },
+
           {
             name: "yeast_id",
             type: "varchar",
+            isNullable: true,
+          },
+          {
+            name: "recipe_id",
+            type: "varchar",
+            isNullable: true,
           },
         ],
       })

@@ -1,20 +1,21 @@
 import { MigrationInterface, QueryRunner, TableForeignKey } from "typeorm";
 
-export class CreateFkRecipeMalts1600472582111 implements MigrationInterface {
+export class CreateFkRecipeYeasts1600544241545 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createForeignKey(
-      "malts_recipe",
+      "yeasts_recipe",
       new TableForeignKey({
-        name: "malt_id",
-        columnNames: ["malt_id"],
+        name: "yeast_id",
+        columnNames: ["yeast_id"],
         referencedColumnNames: ["id"],
-        referencedTableName: "malts",
+        referencedTableName: "yeast",
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       })
     );
+
     await queryRunner.createForeignKey(
-      "malts_recipe",
+      "yeasts_recipe",
       new TableForeignKey({
         name: "recipe_id",
         columnNames: ["recipe_id"],
@@ -24,24 +25,26 @@ export class CreateFkRecipeMalts1600472582111 implements MigrationInterface {
         onUpdate: "CASCADE",
       })
     );
+
     await queryRunner.createForeignKey(
       "recipes",
       new TableForeignKey({
-        name: "malts_recipe",
-        columnNames: ["malts_recipe"],
+        name: "yeasts_recipe",
+        columnNames: ["yeasts_recipe"],
         referencedColumnNames: ["id"],
-        referencedTableName: "malts_recipe",
+        referencedTableName: "yeasts_recipe",
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       })
     );
+
     await queryRunner.createForeignKey(
-      "malts",
+      "yeast",
       new TableForeignKey({
-        name: "malts_recipe",
-        columnNames: ["malts_recipe"],
+        name: "yeasts_recipe",
+        columnNames: ["yeasts_recipe"],
         referencedColumnNames: ["id"],
-        referencedTableName: "malts_recipe",
+        referencedTableName: "yeasts_recipe",
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       })
@@ -49,9 +52,9 @@ export class CreateFkRecipeMalts1600472582111 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey("malts", "malts_recipe");
-    await queryRunner.dropForeignKey("recipes", "malts_recipe");
-    await queryRunner.dropForeignKey("malts_recipe", "malt_id");
-    await queryRunner.dropForeignKey("malts_recipe", "recipe_id");
+    await queryRunner.dropForeignKey("yeast", "yeasts_recipe");
+    await queryRunner.dropForeignKey("recipes", "yeasts_recipe");
+    await queryRunner.dropForeignKey("yeasts_recipe", "yeast_id");
+    await queryRunner.dropForeignKey("yeasts_recipe", "recipe_id");
   }
 }

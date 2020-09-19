@@ -15,6 +15,7 @@ import User from "./User";
 import HopsRecipe from "./HopsRecipe";
 import YeastsRecipe from "./YeastsRecipe";
 import MaltsRecipe from "./MaltsRecipe";
+import Malt from "./Malt";
 
 @Entity("recipes")
 class Recipe {
@@ -32,6 +33,16 @@ class Recipe {
     cascade: true,
   })
   hops_recipe: HopsRecipe[];
+
+  @OneToMany(() => MaltsRecipe, (malts_recipe) => malts_recipe.recipe_id, {
+    cascade: true,
+  })
+  malts_recipe: MaltsRecipe[];
+
+  // @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {
+  //   cascade: true,
+  // })
+  // hops_recipe: HopsRecipe[];
 
   @CreateDateColumn()
   created_at: Date;

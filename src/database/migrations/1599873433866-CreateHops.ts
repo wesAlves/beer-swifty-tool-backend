@@ -32,6 +32,11 @@ export class CreateHops1599873433866 implements MigrationInterface {
             type: "decimal",
           },
           {
+            name: "hops_recipe",
+            type: "varchar",
+            isNullable: true,
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",
@@ -40,11 +45,6 @@ export class CreateHops1599873433866 implements MigrationInterface {
             name: "updated_at",
             type: "timestamp",
             default: "now()",
-          },
-          {
-            name: "hops_recipe",
-            type: "varchar",
-            isNullable: true,
           },
         ],
       })

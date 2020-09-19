@@ -2,11 +2,10 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  OneToMany,
   JoinColumn,
   ManyToOne,
-  ManyToMany,
 } from "typeorm";
+
 import Hop from "./Hop";
 import Recipe from "./Recipe";
 

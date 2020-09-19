@@ -28,6 +28,11 @@ export default class CreateMalts1599864039877 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: "malts_recipe",
+            type: "varchar",
+            isNullable: true,
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",

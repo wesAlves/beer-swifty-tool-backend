@@ -7,6 +7,7 @@ interface Request {
   recipe_name: string;
   owner_id: string;
   hops: [];
+  malts: [];
 }
 
 class CreateRecipeService {
@@ -14,6 +15,7 @@ class CreateRecipeService {
     recipe_name,
     owner_id,
     hops,
+    malts,
   }: Request): Promise<Recipe> {
     const recipeRepository = getRepository(Recipe);
 
@@ -24,6 +26,7 @@ class CreateRecipeService {
       hop_quantity: 10,
       hop_add_type: "12",
       hop_add_time: 12,
+      malts_recipe: malts,
     });
 
     await recipeRepository.save(recipe);

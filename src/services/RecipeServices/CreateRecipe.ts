@@ -25,9 +25,6 @@ class CreateRecipeService {
       owner_id,
       recipe_name,
       hops_recipe: hops,
-      hop_quantity: 10,
-      hop_add_type: "12",
-      hop_add_time: 12,
       malts_recipe: malts,
       yeasts_recipe: yeasts,
     });

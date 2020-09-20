@@ -25,6 +25,18 @@ class Recipe {
   @Column()
   recipe_name: string;
 
+  @Column("decimal")
+  srm: number;
+
+  @Column("decimal")
+  og: number;
+
+  @Column("decimal")
+  fg: number;
+
+  @Column()
+  description: string;
+
   @ManyToOne(() => User)
   @JoinColumn({ name: "owner_id" })
   owner_id: User;

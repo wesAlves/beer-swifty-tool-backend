@@ -24,6 +24,22 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: "srm",
+            type: "decimal",
+          },
+          {
+            name: "og",
+            type: "decimal",
+          },
+          {
+            name: "fg",
+            type: "decimal",
+          },
+          {
+            name: "description",
+            type: "varchar",
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",

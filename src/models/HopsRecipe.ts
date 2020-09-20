@@ -26,7 +26,7 @@ class HopsRecipe {
   hop_quantity: number;
 
   @Column("decimal")
-  hop_add_type: string;
+  hop_add_type: number;
 
   @Column("int")
   hop_add_time: number;

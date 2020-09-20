@@ -31,7 +31,6 @@ export class AddUserIdToRecipe1600281397124 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey("recipes", "owner_id");
-
     await queryRunner.dropColumn("recipes", "owner_id");
   }
 }

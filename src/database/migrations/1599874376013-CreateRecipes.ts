@@ -24,21 +24,6 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "hops_recipe",
-            type: "varchar",
-            isNullable: true,
-          },
-          {
-            name: "malts_recipe",
-            type: "varchar",
-            isNullable: true,
-          },
-          {
-            name: "yeasts_recipe",
-            type: "varchar",
-            isNullable: true,
-          },
-          {
             name: "created_at",
             type: "timestamp",
             default: "now()",

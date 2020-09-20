@@ -25,35 +25,9 @@ export class CreateFkRecipeHops1600440432759 implements MigrationInterface {
         onUpdate: "CASCADE",
       })
     );
-
-    await queryRunner.createForeignKey(
-      "recipes",
-      new TableForeignKey({
-        name: "hops_recipe",
-        columnNames: ["hops_recipe"],
-        referencedColumnNames: ["id"],
-        referencedTableName: "hops_recipe",
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      })
-    );
-
-    await queryRunner.createForeignKey(
-      "hops",
-      new TableForeignKey({
-        name: "hops_recipe",
-        columnNames: ["hops_recipe"],
-        referencedColumnNames: ["id"],
-        referencedTableName: "hops_recipe",
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      })
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey("hops", "hops_recipe");
-    await queryRunner.dropForeignKey("recipes", "hops_recipe");
     await queryRunner.dropForeignKey("hops_recipe", "hops_id");
     await queryRunner.dropForeignKey("hops_recipe", "recipe_id");
   }

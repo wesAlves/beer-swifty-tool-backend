@@ -28,6 +28,16 @@ export class CreateMaltsRecipe1600281461655 implements MigrationInterface {
             type: "decimal",
             isNullable: true,
           },
+          {
+            name: "malt_potential",
+            type: "decimal",
+            isNullable: true,
+          },
+          {
+            name: "malt_color",
+            type: "decimal",
+            isNullable: true,
+          },
         ],
       })
     );

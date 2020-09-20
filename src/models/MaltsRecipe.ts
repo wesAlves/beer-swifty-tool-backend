@@ -24,6 +24,12 @@ class MaltsRecipe {
 
   @Column("decimal")
   malt_quantity: number;
+
+  @Column("decimal")
+  malt_potential: number;
+
+  @Column("decimal")
+  malt_color: number;
 }
 
 export default MaltsRecipe;

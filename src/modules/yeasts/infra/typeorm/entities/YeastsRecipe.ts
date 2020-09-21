@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 
 import Yeast from "./Yeast";
-import Recipe from "../../recipes/entities/Recipe";
+import Recipe from "@modules/recipes/infra/typeorm/entities/Recipe";
 
 @Entity("yeasts_recipe")
 class YeastsRecipe {

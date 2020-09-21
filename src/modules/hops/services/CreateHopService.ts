@@ -1,8 +1,8 @@
 import { getCustomRepository } from "typeorm";
 
-import Hop from "../entities/Hop";
+import Hop from "../infra/typeorm/entities/Hop";
 
-import HopsRepository from "../../hops/repositories/HopsRepository";
+import HopsRepository from "@modules/hops/repositories/HopsRepository";
 
 interface Request {
   hop_name: string;

@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 
-import Yeast from "../entities/Yeast";
+import Yeast from "../infra/typeorm/entities/Yeast";
 
 import YeastRepository from "../repositories/YeastsRepository";
 

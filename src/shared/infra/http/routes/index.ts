@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import fermentablesRouter from "./fermentables.routes";
-import hopsRouter from "./hops.routes";
-import yeastsRouter from "./yeasts.routes";
-import recipeRoutes from "./recipes.routes";
-import userRoutes from "./users.routes";
+import fermentablesRouter from "@modules/fermentables/infra/http/routes/fermentables.routes";
+import hopsRouter from "@modules/hops/infra/http/routes/hops.routes";
+import yeastsRouter from "@modules/yeasts/infra/http/routes/yeasts.routes";
+import recipeRoutes from "@modules/recipes/infra/http/routes/recipes.routes";
+import userRoutes from "@modules/users/infra/http/routes/users.routes";
 
 const routes = Router();
 

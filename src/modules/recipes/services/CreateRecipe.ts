@@ -1,6 +1,6 @@
 import { getCustomRepository, getRepository } from "typeorm";
 
-import Recipe from "../entities/Recipe";
+import Recipe from "../infra/typeorm/entities/Recipe";
 import RecipeRepository from "../repositories/RecipeRepository";
 
 interface Request {

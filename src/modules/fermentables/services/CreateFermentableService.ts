@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 
-import Fermentable from "../entities/Fermentable";
+import Fermentable from "../infra/typeorm/entities/Fermentable";
 
 import FermentablesRepository from "../repositories/FermentablesRepository";
 

@@ -1,6 +1,6 @@
 import { uuid } from "uuidv4";
 
-import Hop from "../entities/Hop";
+import Hop from "../infra/typeorm/entities/Hop";
 
 class HopsRepository<Hop> {
   private hops: Hop[] = [];

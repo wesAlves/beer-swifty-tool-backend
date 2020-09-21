@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 
-import Recipe from "../../recipes/entities/Recipe";
+import Recipe from "@modules/recipes/infra/typeorm/entities/Recipe";
 
 @Entity("users")
 class User {

@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 
-import User from "../entities/User";
+import User from "../infra/typeorm/entities/User";
 import UserRepository from "../reposiotories/UsersRepository";
 
 interface Request {

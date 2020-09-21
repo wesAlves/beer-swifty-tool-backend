@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm";
 
-import Fermentable from "../entities/Fermentable";
+import Fermentable from "../infra/typeorm/entities/Fermentable";
 
 @EntityRepository(Fermentable)
 class FermentablesRepository extends Repository<Fermentable> {

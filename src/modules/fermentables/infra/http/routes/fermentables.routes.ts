@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { getCustomRepository } from "typeorm";
 
-import FermentablesRepository from "../../modules/fermentables/repositories/FermentablesRepository";
-import CreateFermentableService from "../../modules/fermentables/services/CreateFermentableService";
-import UpdateFermentableService from "../../modules/fermentables/services/UpdateFermentableService";
-import DeleteFermentableService from "../../modules/fermentables/services/DeleteFermentableService";
+import FermentablesRepository from "@modules/fermentables/repositories/FermentablesRepository";
+import CreateFermentableService from "@modules/fermentables/services/CreateFermentableService";
+import UpdateFermentableService from "@modules/fermentables/services/UpdateFermentableService";
+import DeleteFermentableService from "@modules/fermentables/services/DeleteFermentableService";
 
 const fermentablesRouter = Router();
 

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { getCustomRepository } from "typeorm";
-import YeastRepository from "../../modules/yeasts/repositories/YeastsRepository";
-import CreateYeastService from "../../modules/yeasts/services/CreateYeatService";
-import DeleteYeastService from "../../modules/yeasts/services/DeleteYeastService";
-import UpdateYeastService from "../../modules/yeasts/services/UpdateYeastService";
+import YeastRepository from "@modules/yeasts/repositories/YeastsRepository";
+import CreateYeastService from "@modules/yeasts/services/CreateYeatService";
+import DeleteYeastService from "@modules/yeasts/services/DeleteYeastService";
+import UpdateYeastService from "@modules/yeasts/services/UpdateYeastService";
 
 const yeastRouter = Router();
 

@@ -11,11 +11,11 @@ import {
   OneToMany,
 } from "typeorm";
 
-import User from "../../users/entities/User";
-import HopsRecipe from "../../hops/entities/HopsRecipe";
-import YeastsRecipe from "../../yeasts/entities/YeastsRecipe";
-import FermentablesRecipe from "../../fermentables/entities/FermentablesRecipe";
-import Fermentable from "../../fermentables/entities/Fermentable";
+import User from "@modules/users/infra/typeorm/entities/User";
+import HopsRecipe from "@modules/hops/infra/typeorm/entities/HopsRecipe";
+import YeastsRecipe from "@modules/yeasts/infra/typeorm/entities/YeastsRecipe";
+import FermentablesRecipe from "@modules/fermentables/infra/typeorm/entities/FermentablesRecipe";
+import Fermentable from "@modules/fermentables/infra/typeorm/entities/Fermentable";
 
 @Entity("recipes")
 class Recipe {

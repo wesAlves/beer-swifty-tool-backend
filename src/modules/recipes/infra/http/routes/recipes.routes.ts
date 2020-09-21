@@ -1,8 +1,8 @@
 import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 
-import RecipeRepositoy from "../../modules/recipes/repositories/RecipeRepository";
-import CreateRecipeService from "../../modules/recipes/services/CreateRecipe";
+import RecipeRepositoy from "@modules/recipes/repositories/RecipeRepository";
+import CreateRecipeService from "@modules/recipes/services/CreateRecipe";
 
 const recipeRoutes = Router();
 

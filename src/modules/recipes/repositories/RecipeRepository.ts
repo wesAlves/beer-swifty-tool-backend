@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm";
 
-import Recipe from "../entities/Recipe";
+import Recipe from "../infra/typeorm/entities/Recipe";
 
 @EntityRepository(Recipe)
 class RecipeRepository extends Repository<Recipe> {

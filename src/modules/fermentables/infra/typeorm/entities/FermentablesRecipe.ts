@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 
 import Fermentable from "./Fermentable";
-import Recipe from "../../recipes/entities/Recipe";
+import Recipe from "@modules/recipes/infra/typeorm/entities/Recipe";
 
 @Entity("fermentables_recipe")
 class FermentablesRecipe {

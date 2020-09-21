@@ -1,9 +1,9 @@
 import { request } from "express";
 import { getCustomRepository } from "typeorm";
 
-import Fermentable from "../../models/Fermentable";
+import Fermentable from "../entities/Fermentable";
 
-import FermentablesRepository from "../../repositories/FermentablesRepository";
+import FermentablesRepository from "../repositories/FermentablesRepository";
 
 interface Request {
   id: string;

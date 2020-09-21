@@ -1,8 +1,8 @@
 import { getCustomRepository } from "typeorm";
 
-import Yeast from "../../models/Yeast";
+import Yeast from "../entities/Yeast";
 
-import YeastRepository from "../../repositories/YeastsRepository";
+import YeastRepository from "../repositories/YeastsRepository";
 
 interface Request {
   id: string;

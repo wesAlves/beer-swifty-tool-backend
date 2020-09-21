@@ -1,9 +1,9 @@
 import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 import HopsRepository from "../../modules/hops/repositories/HopsRepository";
-import CreateHopService from "../services/HopsServices/CreateHopService";
-import DeleteHopService from "../services/HopsServices/DeleteHopService";
-import UpdateHopService from "../services/HopsServices/UpdateHopService";
+import CreateHopService from "../../modules/hops/services/CreateHopService";
+import DeleteHopService from "../../modules/hops/services/DeleteHopService";
+import UpdateHopService from "../../modules/hops/services/UpdateHopService";
 
 const hopsRouter = Router();
 

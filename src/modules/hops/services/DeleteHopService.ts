@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import HopsRepository from "../../modules/hops/repositories/HopsRepository";
+import HopsRepository from "../../hops/repositories/HopsRepository";
 
 class DeleteHopService {
   public async execute(id: string): Promise<void> {

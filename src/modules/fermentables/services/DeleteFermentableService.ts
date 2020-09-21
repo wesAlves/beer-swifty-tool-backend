@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 
 // import AppError from "../errors/AppErrors";
 
-import FermentablesRepository from "../../repositories/FermentablesRepository";
+import FermentablesRepository from "../repositories/FermentablesRepository";
 
 class DeleteFermentableService {
   public async execute(id: string): Promise<void> {

@@ -3,8 +3,8 @@ import { getCustomRepository } from "typeorm";
 
 import FermentablesRepository from "../../modules/fermentables/repositories/FermentablesRepository";
 import CreateFermentableService from "../../modules/fermentables/services/CreateFermentableService";
-import UpdateFermentableService from "../services/FermentablesServices/UpdateFermentableService";
-import DeleteFermentableService from "../services/FermentablesServices/DeleteFermentableService";
+import UpdateFermentableService from "../../modules/fermentables/services/UpdateFermentableService";
+import DeleteFermentableService from "../../modules/fermentables/services/DeleteFermentableService";
 
 const fermentablesRouter = Router();
 

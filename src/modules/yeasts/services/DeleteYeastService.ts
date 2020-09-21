@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import YeastRepository from "../../repositories/YeastsRepository";
+import YeastRepository from "../repositories/YeastsRepository";
 
 class DeleteYeastService {
   public async execute(id: string): Promise<void> {

@@ -12,9 +12,9 @@ import {
 } from "typeorm";
 
 import User from "../../users/entities/User";
-import HopsRecipe from "../../../shared/entities/HopsRecipe";
+import HopsRecipe from "../../hops/entities/HopsRecipe";
 import YeastsRecipe from "../../yeasts/entities/YeastsRecipe";
-import FermentablesRecipe from "../../../shared/entities/FermentablesRecipe";
+import FermentablesRecipe from "../../fermentables/entities/FermentablesRecipe";
 import Fermentable from "../../fermentables/entities/Fermentable";
 
 @Entity("recipes")

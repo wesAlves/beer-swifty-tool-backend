@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 
 import Hop from "./Hop";
-import Recipe from "../../modules/recipes/entities/Recipe";
+import Recipe from "../../recipes/entities/Recipe";
 
 @Entity("hops_recipe")
 class HopsRecipe {

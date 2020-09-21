@@ -7,7 +7,17 @@ import CreateRecipeService from "@modules/recipes/services/CreateRecipe";
 const recipeRoutes = Router();
 
 recipeRoutes.post("/", async (request, response) => {
-  const { recipe_name, owner_id, hops, fermentables, yeasts } = request.body;
+  const {
+    recipe_name,
+    owner_id,
+    hops,
+    fermentables,
+    yeasts,
+    srm,
+    og,
+    fg,
+    description,
+  } = request.body;
 
   const createRecipe = new CreateRecipeService();
 
@@ -17,6 +27,10 @@ recipeRoutes.post("/", async (request, response) => {
     hops,
     fermentables,
     yeasts,
+    srm,
+    og,
+    fg,
+    description,
   });
 
   return response.json(recipe);

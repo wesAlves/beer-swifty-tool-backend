@@ -6,9 +6,15 @@
   "username": "postgres",
   "password": "docker",
   "database": "BST",
-  "entities": ["./src/models/*.ts"],
-  "migrations": ["./src/database/migrations/*.ts"],
+  "entities": [
+    "./src/modules/fermentables/infra/typeorm/entities/*.ts",
+    "./src/modules/hops/infra/typeorm/entities/*.ts",
+    "./src/modules/recipes/infra/typeorm/entities/*.ts",
+    "./src/modules/users/infra/typeorm/entities/*.ts",
+    "./src/modules/yeasts/infra/typeorm/entities/*.ts"
+  ],
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }

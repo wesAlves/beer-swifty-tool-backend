@@ -3,20 +3,20 @@
     {
       "id": 1,
       "recipe_name": "Red Ale-01",
-      "malts_id": [
+      "fermentables_id": [
         {
-          "malt_id": 1,
-          "malt_name": "pale ale",
+          "fermentable_id": 1,
+          "fermentable_name": "pale ale",
           "quantity": 20,
-          "malt_color": 3,
-          "malt_potential": 1.0372
+          "fermentable_color": 3,
+          "fermentable_potential": 1.0372
         },
         {
-          "malt_id": 2,
-          "malt_name": "crystal",
+          "fermentable_id": 2,
+          "fermentable_name": "crystal",
           "quantity": 2,
-          "malt_color": 3,
-          "malt_potential": 1.03902
+          "fermentable_color": 3,
+          "fermentable_potential": 1.03902
         }
       ],
       "hops_id": [
@@ -49,30 +49,30 @@
       "updated_at": "09-07-2020-18:48:57"
     }
   ],
-  "malts": [
+  "fermentables": [
     {
       "id": 1,
-      "malt_name": "pilsen",
-      "maltt_potential": 1.372,
-      "malt_color": 2
+      "fermentable_name": "pilsen",
+      "fermentablet_potential": 1.372,
+      "fermentable_color": 2
     },
     {
       "id": 2,
-      "malt_name": "pale ale",
-      "maltt_potential": 1.372,
-      "malt_color": 2
+      "fermentable_name": "pale ale",
+      "fermentablet_potential": 1.372,
+      "fermentable_color": 2
     },
     {
       "id": 3,
-      "malt_name": "crystal",
-      "maltt_potential": 1.372,
-      "malt_color": 2
+      "fermentable_name": "crystal",
+      "fermentablet_potential": 1.372,
+      "fermentable_color": 2
     },
     {
       "id": 10,
-      "malt_name": "German pills",
-      "maltt_potential": 1.372,
-      "malt_color": 2
+      "fermentable_name": "German pills",
+      "fermentablet_potential": 1.372,
+      "fermentable_color": 2
     }
   ],
   "yeasts": [

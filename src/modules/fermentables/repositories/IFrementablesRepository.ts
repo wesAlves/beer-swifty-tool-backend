@@ -1,5 +1,4 @@
-import Fermentable from "../typeorm/entities/Fermentable";
-
+import Fermentable from "@modules/fermentables/infra/typeorm/entities/Fermentable";
 import ICreateFermentableDTO from "@modules/fermentables/dtos/ICreateFermentableDTO";
 import IUpdateFermentableDTO from "@modules/fermentables/dtos/IUpdateFermentableDTO";
 

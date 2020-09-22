@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { container } from "tsyringe";
 
 import FermentablesRepository from "@modules/fermentables/infra/typeorm/repositories/FermentablesRepository";
 import CreateFermentableService from "@modules/fermentables/services/CreateFermentableService";
@@ -8,16 +9,13 @@ import DeleteFermentableService from "@modules/fermentables/services/DeleteFerme
 const fermentablesRouter = Router();
 
 fermentablesRouter.post("/", async (request, response) => {
-	const fermentablesRepository = new FermentablesRepository();
 	const {
 		fermentable_name,
 		fermentable_color,
 		fermentable_potential,
 	} = request.body;
 
-	const createFermentable = new CreateFermentableService(
-		fermentablesRepository
-	);
+	const createFermentable = container.resolve(CreateFermentableService);
 
 	const fermentable = await createFermentable.execute({
 		fermentable_name,
@@ -37,7 +35,6 @@ fermentablesRouter.get("/", async (request, response) => {
 });
 
 fermentablesRouter.put("/:id", async (request, response) => {
-	const fermentablesRepository = new FermentablesRepository();
 	const { id } = request.params;
 	const {
 		fermentable_name,
@@ -45,9 +42,7 @@ fermentablesRouter.put("/:id", async (request, response) => {
 		fermentable_potential,
 	} = request.body;
 
-	const updateFermentable = new UpdateFermentableService(
-		fermentablesRepository
-	);
+	const updateFermentable = container.resolve(UpdateFermentableService);
 
 	const fermentable = await updateFermentable.execute({
 		id,
@@ -60,13 +55,9 @@ fermentablesRouter.put("/:id", async (request, response) => {
 });
 
 fermentablesRouter.delete("/:id", async (request, response) => {
-	const fermentablesRepository = new FermentablesRepository();
-
 	const { id } = request.params;
 
-	const deleteFermentable = new DeleteFermentableService(
-		fermentablesRepository
-	);
+	const deleteFermentable = container.resolve(DeleteFermentableService);
 
 	await deleteFermentable.execute(id);
 

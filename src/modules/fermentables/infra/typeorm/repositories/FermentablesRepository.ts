@@ -1,7 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import Fermentable from "../entities/Fermentable";
-import IFermentablesRepository from "../../repositories/IFrementablesRepository";
+import IFermentablesRepository from "@modules/fermentables/repositories/IFrementablesRepository";
 import ICreateFermentableDTO from "@modules/fermentables/dtos/ICreateFermentableDTO";
 import IUpdateFermentableDTO from "@modules/fermentables/dtos/IUpdateFermentableDTO";
 

@@ -1,6 +1,7 @@
-import Fermentable from "../infra/typeorm/entities/Fermentable";
+import { injectable, inject } from "tsyringe";
 
-import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
+import Fermentable from "../infra/typeorm/entities/Fermentable";
+import IFermentablesRepository from "@modules/fermentables/repositories/IFrementablesRepository";
 
 interface IRequest {
 	id: string;
@@ -8,9 +9,12 @@ interface IRequest {
 	fermentable_color: number;
 	fermentable_potential: number;
 }
-
+@injectable()
 class UpdateFermentableService {
-	constructor(private fermentablesRepository: IFermentablesRepository) {}
+	constructor(
+		@inject("FermentablesRepository")
+		private fermentablesRepository: IFermentablesRepository
+	) {}
 	public async execute({
 		id,
 		fermentable_name,

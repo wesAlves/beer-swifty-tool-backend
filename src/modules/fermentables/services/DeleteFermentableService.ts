@@ -1,7 +1,12 @@
-import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
+import { injectable, inject } from "tsyringe";
 
+import IFermentablesRepository from "@modules/fermentables/repositories/IFrementablesRepository";
+@injectable()
 class DeleteFermentableService {
-	constructor(private fermentablesRepository: IFermentablesRepository) {}
+	constructor(
+		@inject("FermentablesRepository")
+		private fermentablesRepository: IFermentablesRepository
+	) {}
 
 	public async execute(id: string): Promise<void> {
 		// TODO treat the error catcher

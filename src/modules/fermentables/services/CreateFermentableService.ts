@@ -1,14 +1,18 @@
 import Fermentable from "../infra/typeorm/entities/Fermentable";
-import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
+import IFermentablesRepository from "@modules/fermentables/repositories/IFrementablesRepository";
+import { injectable, inject } from "tsyringe";
 
 interface IRequest {
 	fermentable_name: string;
 	fermentable_color: number;
 	fermentable_potential: number;
 }
-
+@injectable()
 class CreateFermentableService {
-	constructor(private fermentablesRepository: IFermentablesRepository) {}
+	constructor(
+		@inject("FermentablesRepository")
+		private fermentablesRepository: IFermentablesRepository
+	) {}
 
 	public async execute({
 		fermentable_name,

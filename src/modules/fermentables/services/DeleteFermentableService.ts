@@ -1,22 +1,17 @@
-import { getCustomRepository } from "typeorm";
-
-// import AppError from "../errors/AppErrors";
-
-import FermentablesRepository from "../repositories/FermentablesRepository";
+import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
 
 class DeleteFermentableService {
-  public async execute(id: string): Promise<void> {
-    const fermentablesRepository = getCustomRepository(FermentablesRepository);
+	constructor(private fermentablesRepository: IFermentablesRepository) {}
 
-    // TODO treat the error catcher
-    // const fermentable = await fermentablesRepository.findOne(id);
-    // if (!fermentable) {
-    //   // throw new AppError("Fermentable does not exists!!!");
-    //   return;
-    // }
-
-    await fermentablesRepository.delete({ id: `${id}` });
-  }
+	public async execute(id: string): Promise<void> {
+		// TODO treat the error catcher
+		// const fermentable = await fermentablesRepository.findOne(id);
+		// if (!fermentable) {
+		//   // throw new AppError("Fermentable does not exists!!!");
+		//   return;
+		// }
+		await this.fermentablesRepository.delete(id);
+	}
 }
 
 export default DeleteFermentableService;

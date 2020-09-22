@@ -1,33 +1,28 @@
-import { getCustomRepository } from "typeorm";
-
 import Fermentable from "../infra/typeorm/entities/Fermentable";
+import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
 
-import FermentablesRepository from "../repositories/FermentablesRepository";
-
-interface Request {
-  fermentable_name: string;
-  fermentable_color: number;
-  fermentable_potential: number;
+interface IRequest {
+	fermentable_name: string;
+	fermentable_color: number;
+	fermentable_potential: number;
 }
 
 class CreateFermentableService {
-  public async execute({
-    fermentable_name,
-    fermentable_color,
-    fermentable_potential,
-  }: Request): Promise<Fermentable> {
-    const fermentablesRepository = getCustomRepository(FermentablesRepository);
+	constructor(private fermentablesRepository: IFermentablesRepository) {}
 
-    const fermentable = fermentablesRepository.create({
-      fermentable_name,
-      fermentable_color,
-      fermentable_potential,
-    });
+	public async execute({
+		fermentable_name,
+		fermentable_color,
+		fermentable_potential,
+	}: IRequest): Promise<Fermentable> {
+		const fermentable = await this.fermentablesRepository.create({
+			fermentable_name,
+			fermentable_color,
+			fermentable_potential,
+		});
 
-    await fermentablesRepository.save(fermentable);
-
-    return fermentable;
-  }
+		return fermentable;
+	}
 }
 
 export default CreateFermentableService;

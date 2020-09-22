@@ -1,38 +1,31 @@
-import { request } from "express";
-import { getCustomRepository } from "typeorm";
-
 import Fermentable from "../infra/typeorm/entities/Fermentable";
 
-import FermentablesRepository from "../repositories/FermentablesRepository";
+import IFermentablesRepository from "../infra/repositories/IFrementablesRepository";
 
-interface Request {
-  id: string;
-  fermentable_name: string;
-  fermentable_color: number;
-  fermentable_potential: number;
+interface IRequest {
+	id: string;
+	fermentable_name: string;
+	fermentable_color: number;
+	fermentable_potential: number;
 }
 
 class UpdateFermentableService {
-  public async execute({
-    id,
-    fermentable_name,
-    fermentable_color,
-    fermentable_potential,
-  }: Request): Promise<Fermentable> {
-    const fermentablesRepository = getCustomRepository(FermentablesRepository);
+	constructor(private fermentablesRepository: IFermentablesRepository) {}
+	public async execute({
+		id,
+		fermentable_name,
+		fermentable_color,
+		fermentable_potential,
+	}: IRequest): Promise<Fermentable> {
+		const fermentable = await this.fermentablesRepository.update({
+			id,
+			fermentable_name,
+			fermentable_color,
+			fermentable_potential,
+		});
 
-    const fermentable = await fermentablesRepository.update(id, {
-      fermentable_name,
-      fermentable_color,
-      fermentable_potential,
-    });
-
-    const updatedFermentable = await fermentablesRepository.find({
-      id: `${id}`,
-    });
-
-    return updatedFermentable[0];
-  }
+		return fermentable;
+	}
 }
 
 export default UpdateFermentableService;

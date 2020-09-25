@@ -2,7 +2,7 @@ import FakeFermentablesRepository from "../repositories/fakes/FakeFermentablesRe
 import CreateFermentableService from "./CreateFermentableService";
 
 describe("CreateFermentable", () => {
-	it("should be able to create a new Fermentable", async () => {
+	it("Should be able to create a new Fermentable", async () => {
 		const fakeFermentablesRepository = new FakeFermentablesRepository();
 		const createFermentable = new CreateFermentableService(
 			fakeFermentablesRepository

@@ -5,7 +5,7 @@ import IUpdateFermentableDTO from "@modules/fermentables/dtos/IUpdateFermentable
 export default interface IFermentables {
 	create(data: ICreateFermentableDTO): Promise<Fermentable>;
 	// findByDate(date: Date): Promise<Fermentable | undefined>;
-	// delete(id: string): Promise<undefined>;
+	delete(id: string): Promise<string | undefined>;
 	// findById(id: string): Promise<Fermentable>;
 	// update(id: IUpdateFermentableDTO): Promise<Fermentable>;
 	// findAll(): Promise<Fermentable[]>;

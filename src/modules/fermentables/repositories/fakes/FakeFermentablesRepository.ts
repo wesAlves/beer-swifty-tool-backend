@@ -8,9 +8,9 @@ import IUpdateFermentableDTO from "@modules/fermentables/dtos/IUpdateFermentable
 class FermentablesRepository implements IFermentablesRepository {
 	private fermentables: Fermentable[] = [];
 
-	// public async delete(id: string): Promise<undefined> {
-	// 	return undefined;
-	// }
+	public async delete(id: string): Promise<string | undefined> {
+		return `Fermentable with id:${id} was successfull deleted`;
+	}
 	// findById(id: string): Promise<Fermentable> {
 	// 	throw new Error("Method not implemented.");
 	// }

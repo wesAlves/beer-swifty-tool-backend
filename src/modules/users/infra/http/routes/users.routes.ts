@@ -19,6 +19,8 @@ userRoutes.post("/", async (request, response) => {
 		shop,
 	});
 
+	delete user.password;
+
 	return response.json(user);
 });
 

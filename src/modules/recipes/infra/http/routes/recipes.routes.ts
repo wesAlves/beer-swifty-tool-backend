@@ -1,10 +1,14 @@
 import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 
+import ensureAuthenticated from "../../../../../middlewares/ensureAuthenticated";
+
 import RecipeRepositoy from "@modules/recipes/repositories/RecipeRepository";
 import CreateRecipeService from "@modules/recipes/services/CreateRecipe";
 
 const recipeRoutes = Router();
+
+recipeRoutes.use(ensureAuthenticated);
 
 recipeRoutes.post("/", async (request, response) => {
 	const {

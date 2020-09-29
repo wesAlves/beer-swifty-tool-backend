@@ -2,6 +2,7 @@ import { getRepository } from "typeorm";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
+import authConfig from "@config/auth";
 import User from "@modules/users/infra/typeorm/entities/User";
 
 interface IRequest {
@@ -28,9 +29,11 @@ class AuthenticateUserService {
 			throw new Error("Credencias inválidas");
 		}
 
-		const token = sign({}, "013de0c99e66d589b96d74eb85d44c58", {
+		const { secret, expiresIn } = authConfig.jwt;
+
+		const token = sign({}, secret, {
 			subject: user.id,
-			expiresIn: "1d",
+			expiresIn: expiresIn,
 		});
 
 		return { user, token };

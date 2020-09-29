@@ -1,14 +1,14 @@
 {
-  "name": "default",
-  "type": "postgres",
-  "host": "localhost",
-  "port": 5432,
-  "username": "postgres",
-  "password": "docker",
-  "database": "BST",
-  "entities": ["./src/models/*.ts"],
-  "migrations": ["./src/database/migrations/*.ts"],
-  "cli": {
-    "migrationsDir": "./src/database/migrations"
-  }
+	"name": "default",
+	"type": "postgres",
+	"host": "localhost",
+	"port": 5432,
+	"username": "postgres",
+	"password": "docker",
+	"database": "BST",
+	"entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
+	"migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+	"cli": {
+		"migrationsDir": "./src/shared/infra/typeorm/migrations"
+	}
 }

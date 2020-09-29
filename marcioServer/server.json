@@ -1,0 +1,429 @@
+{
+  "user": {
+    "marcio": {
+      "id": 21326459879,
+
+      "recipes": {
+        "recipe_created_at": "09-07-2020-18:48:57",
+        "recipe_updated_at": "20-09-2020-18:48:57",
+        "recipe": [
+          {
+            "id": 1,
+            "recipe_name": "I.P.A",
+            "og": "1.060",
+            "fg": "1.010",
+            "ibu": "55",
+            "abv": "7",
+            "color": "16",
+            "style": "American India Pale Ale",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          },
+          {
+            "id": 2,
+            "recipe_name": "Red Ale",
+            "og": "1,050",
+            "fg": "1,010",
+            "ibu": "30",
+            "abv": "5,5",
+            "color": "16",
+            "style": "Red Ale",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          },
+          {
+            "id": 3,
+            "recipe_name": "Stout",
+            "og": "1,055",
+            "fg": "1,010",
+            "ibu": "25",
+            "abv": "6",
+            "color": "60",
+            "style": "Stout",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          },
+          {
+            "id": 4,
+            "recipe_name": "Pilsen",
+            "og": "1,040",
+            "fg": "1,010",
+            "ibu": "8",
+            "abv": "4,5",
+            "color": "60",
+            "style": "Pilsen",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          },
+          {
+            "id": 5,
+            "recipe_name": "I.P.A doida",
+            "og": "1.060",
+            "fg": "1.010",
+            "ibu": "55",
+            "abv": "7",
+            "color": "16",
+            "style": "American India Pale Ale",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          },
+
+          {
+            "id": 6,
+            "recipe_name": "Stout bruta",
+            "og": 1.055,
+            "fg": 1.01,
+            "ibu": 25,
+            "abv": 6,
+            "color": 60,
+            "style": "Stout",
+            "malts_id": [
+              {
+                "malt_id": 1,
+                "malt_name": "pale ale",
+                "quantity": 20,
+                "malt_color": 3,
+                "malt_potential": 1.0372
+              },
+              {
+                "malt_id": 2,
+                "malt_name": "crystal",
+                "quantity": 2,
+                "malt_color": 3,
+                "malt_potential": 1.03902
+              }
+            ],
+            "hops_id": [
+              {
+                "id": 1,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "id": 2,
+                "hop_name": "apollo",
+                "add_time": 10,
+                "amount": 100
+              },
+              {
+                "hop_name": "apollo",
+                "id": 3,
+                "add_time": 10,
+                "amount": 100
+              }
+            ],
+            "yeast_id": [
+              {
+                "londonAle": 1,
+                "englishAle": 2
+              }
+            ],
+            "created_at": "09-07-2020-18:48:57",
+            "updated_at": "09-07-2020-18:48:57"
+          }
+        ]
+      }
+    }
+  },
+
+  "malts": [
+    {
+      "id": 1,
+      "malt_name": "pilsen",
+      "maltt_potential": 1.372,
+      "malt_color": 2
+    },
+    {
+      "id": 2,
+      "malt_name": "pale ale",
+      "maltt_potential": 1.372,
+      "malt_color": 2
+    },
+    {
+      "id": 3,
+      "malt_name": "crystal",
+      "maltt_potential": 1.372,
+      "malt_color": 2
+    },
+    {
+      "id": 10,
+      "malt_name": "German pills",
+      "maltt_potential": 1.372,
+      "malt_color": 2
+    }
+  ],
+  "yeasts": [
+    {
+      "id": 1,
+      "yeast_name": "london ale",
+      "yeast_type": "dry",
+      "cells_quantity": "2kk/ml",
+      "manufacture": "homemade"
+    },
+    {
+      "id": 2,
+      "yeast_name": "english ale",
+      "yeast_type": "dry",
+      "cells_quantity": "2kk/ml",
+      "manufacture": "import"
+    }
+  ],
+  "hops": [
+    {
+      "id": 1,
+      "hop_name": "apollo",
+      "hop_type": "bittering",
+      "accid": 13
+    },
+    {
+      "id": 2,
+      "hop_name": "citra",
+      "hop_type": "aroma",
+      "accid": 8
+    },
+    {
+      "id": 3,
+      "hop_name": "cascade",
+      "hop_type": "bittering/aroma",
+      "accid": 9
+    }
+  ],
+
+  "styles": [
+    {
+      "id": 1,
+      "style_name": "American India Pale Ale",
+      "img": "../../../assets/img/ipa.png",
+      "description": "pensa numa cerva amarga"
+    },
+    {
+      "id": 2,
+      "style_name": "Pilsen",
+      "img": "../../../assets/img/pilsen.png",
+      "description": "Cerveja pra tomar de balde"
+    },
+    {
+      "id": 3,
+      "style_name": "Stout",
+      "img": "../../../assets/img/stout.png",
+      "description": "Cerveja pra tomar comendo chocolate"
+    },
+    {
+      "id": 4,
+      "style_name": "Red Ale",
+      "img": "../../../assets/img/red-ale.png",
+      "description": "Cerveja vermelha e maltada"
+    }
+  ]
+}

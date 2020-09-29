@@ -9,14 +9,14 @@ import DeleteMaltService from "../services/MaltsServices/DeleteMaltService";
 const maltsRouter = Router();
 
 maltsRouter.post("/", async (request, response) => {
-  const { maltName, maltColor, maltPotential } = request.body;
+  const { malt_name, malt_color, malt_potential } = request.body;
 
   const createMalt = new CreateMaltService();
 
   const malt = await createMalt.execute({
-    maltName,
-    maltColor,
-    maltPotential,
+    malt_name,
+    malt_color,
+    malt_potential,
   });
 
   return response.json(malt);
@@ -31,15 +31,15 @@ maltsRouter.get("/", async (request, response) => {
 
 maltsRouter.put("/:id", async (request, response) => {
   const { id } = request.params;
-  const { maltName, maltColor, maltPotential } = request.body;
+  const { malt_name, malt_color, malt_potential } = request.body;
 
   const updateMalt = new UpdateMaltService();
 
   const malt = await updateMalt.execute({
     id,
-    maltName,
-    maltColor,
-    maltPotential,
+    malt_name,
+    malt_color,
+    malt_potential,
   });
 
   return response.json(malt);

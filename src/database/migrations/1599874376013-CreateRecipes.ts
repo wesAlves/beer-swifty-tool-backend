@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from "typeorm";
 
 export class CreateRecipes1599874376013 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -14,9 +19,25 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "recipeName",
+            name: "recipe_name",
             type: "varchar",
             isNullable: false,
+          },
+          {
+            name: "srm",
+            type: "decimal",
+          },
+          {
+            name: "og",
+            type: "decimal",
+          },
+          {
+            name: "fg",
+            type: "decimal",
+          },
+          {
+            name: "description",
+            type: "varchar",
           },
           {
             name: "created_at",

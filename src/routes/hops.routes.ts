@@ -16,14 +16,14 @@ hopsRouter.get("/", async (request, response) => {
 });
 
 hopsRouter.post("/", async (request, response) => {
-  const { hopName, hopAlphaAcid, hopType } = request.body;
+  const { hop_name, hop_alpha_acid, hop_type } = request.body;
 
   const createHop = new CreateHopService();
 
   const hop = await createHop.execute({
-    hopName,
-    hopAlphaAcid,
-    hopType,
+    hop_name,
+    hop_alpha_acid,
+    hop_type,
   });
 
   return response.json(hop);
@@ -31,15 +31,15 @@ hopsRouter.post("/", async (request, response) => {
 
 hopsRouter.put("/:id", async (request, response) => {
   const { id } = request.params;
-  const { hopName, hopAlphaAcid, hopType } = request.body;
+  const { hop_name, hop_alpha_acid, hop_type } = request.body;
 
   const updateHop = new UpdateHopService();
 
   const hop = await updateHop.execute({
     id,
-    hopName,
-    hopAlphaAcid,
-    hopType,
+    hop_name,
+    hop_alpha_acid,
+    hop_type,
   });
 
   return response.json(hop);

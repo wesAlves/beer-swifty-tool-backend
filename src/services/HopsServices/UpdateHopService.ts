@@ -4,24 +4,24 @@ import Hop from "../../models/Hop";
 
 interface Request {
   id: string;
-  hopName: string;
-  hopAlphaAcid: number;
-  hopType: string;
+  hop_name: string;
+  hop_alpha_acid: number;
+  hop_type: string;
 }
 
 class UpdateHopService {
   public async execute({
     id,
-    hopName,
-    hopAlphaAcid,
-    hopType,
+    hop_name,
+    hop_alpha_acid,
+    hop_type,
   }: Request): Promise<Hop> {
     const hopsRepository = getCustomRepository(HopsRepository);
 
     const hop = await hopsRepository.update(id, {
-      hopName,
-      hopAlphaAcid,
-      hopType,
+      hop_name,
+      hop_alpha_acid,
+      hop_type,
     });
 
     const updatedHop = await hopsRepository.find({ id: `${id}` });

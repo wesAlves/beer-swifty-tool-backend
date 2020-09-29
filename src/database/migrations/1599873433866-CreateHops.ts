@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from "typeorm";
 import { uuid } from "uuidv4";
 
 export class CreateHops1599873433866 implements MigrationInterface {
@@ -15,15 +20,15 @@ export class CreateHops1599873433866 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "hopName",
+            name: "hop_name",
             type: "varchar",
           },
           {
-            name: "hopType",
+            name: "hop_type",
             type: "varchar",
           },
           {
-            name: "hopAlphaAcid",
+            name: "hop_alpha_acid",
             type: "decimal",
           },
           {

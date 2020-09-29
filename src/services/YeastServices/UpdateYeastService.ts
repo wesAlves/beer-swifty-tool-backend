@@ -6,15 +6,15 @@ import YeastRepository from "../../repositories/YeastsRepository";
 
 interface Request {
   id: string;
-  yeastName: string;
+  yeast_name: string;
 }
 
 class UpdateYeastService {
-  public async execute({ id, yeastName }: Request): Promise<Yeast> {
+  public async execute({ id, yeast_name }: Request): Promise<Yeast> {
     const yeastRepository = getCustomRepository(YeastRepository);
 
     const yeast = yeastRepository.update(id, {
-      yeastName,
+      yeast_name,
     });
 
     const updateYeast = await yeastRepository.find({ id: `${id}` });

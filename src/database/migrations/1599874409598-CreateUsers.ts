@@ -14,7 +14,7 @@ export class CreateUsers1599874409598 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "userName",
+            name: "user_name",
             type: "varchar",
             isNullable: false,
           },
@@ -23,6 +23,19 @@ export class CreateUsers1599874409598 implements MigrationInterface {
             type: "varchar",
             isNullable: false,
             isUnique: true,
+          },
+          {
+            name: "password",
+            type: "varchar",
+            isNullable: false,
+          },
+          {
+            name: "avatar_url",
+            type: "varchar",
+          },
+          {
+            name: "shop",
+            type: "boolean",
           },
           {
             name: "created_at",
@@ -40,6 +53,6 @@ export class CreateUsers1599874409598 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("malts");
+    await queryRunner.dropTable("users");
   }
 }

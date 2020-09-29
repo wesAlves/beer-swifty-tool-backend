@@ -2,9 +2,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+
+import HopsRecipe from "./HopsRecipe";
 
 @Entity("hops")
 class Hop {
@@ -12,13 +18,21 @@ class Hop {
   id: string;
 
   @Column()
-  hopName: string;
+  hop_name: string;
+
+  @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.hop_id, {
+    cascade: true,
+  })
+  recipes_hops: HopsRecipe[];
 
   @Column("decimal")
-  hopAlphaAcid: number;
+  hop_alpha_acid: number;
 
   @Column()
-  hopType: string;
+  hop_type: string;
+
+  // @OneToMany(() => HopsRecipe, (hopsRecipe) => hopsRecipe.id)
+  // hopsRecipe: HopsRecipe;
 
   @CreateDateColumn()
   created_at: Date;

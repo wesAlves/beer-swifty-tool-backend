@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import MaltsRecipe from "./MaltsRecipe";
 
 @Entity("malts")
 class Malt {
@@ -12,13 +14,18 @@ class Malt {
   id: string;
 
   @Column()
-  maltName: string;
+  malt_name: string;
 
   @Column("decimal")
-  maltColor: number;
+  malt_color: number;
 
   @Column("decimal")
-  maltPotential: number;
+  malt_potential: number;
+
+  @OneToMany(() => MaltsRecipe, (maslts_recipe) => maslts_recipe.malt_id, {
+    cascade: true,
+  })
+  malts_recipe: MaltsRecipe[];
 
   @CreateDateColumn()
   created_at: Date;

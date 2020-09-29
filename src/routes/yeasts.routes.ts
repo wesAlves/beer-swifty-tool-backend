@@ -16,12 +16,12 @@ yeastRouter.get("/", async (request, response) => {
 });
 
 yeastRouter.post("/", async (request, response) => {
-  const { yeastName } = request.body;
+  const { yeast_name } = request.body;
 
   const createYeast = new CreateYeastService();
 
   const yeast = await createYeast.execute({
-    yeastName,
+    yeast_name,
   });
 
   return response.json(yeast);
@@ -30,13 +30,13 @@ yeastRouter.post("/", async (request, response) => {
 yeastRouter.put("/:id", async (request, response) => {
   const { id } = request.params;
 
-  const { yeastName } = request.body;
+  const { yeast_name } = request.body;
 
   const updateYeast = new UpdateYeastService();
 
   const yeast = await updateYeast.execute({
     id,
-    yeastName,
+    yeast_name,
   });
 
   return response.json(yeast);

@@ -4,15 +4,15 @@ import Yeast from "../../models/Yeast";
 import YeastRepository from "../../repositories/YeastsRepository";
 
 interface Request {
-  yeastName: string;
+  yeast_name: string;
 }
 
 class CreateYeastService {
-  public async execute({ yeastName }: Request): Promise<Yeast> {
+  public async execute({ yeast_name }: Request): Promise<Yeast> {
     const yeastRepository = getCustomRepository(YeastRepository);
 
     const yeast = yeastRepository.create({
-      yeastName,
+      yeast_name,
     });
 
     await yeastRepository.save(yeast);

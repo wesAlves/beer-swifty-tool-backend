@@ -4,7 +4,7 @@ import { hash } from "bcryptjs";
 import User from "../infra/typeorm/entities/User";
 import UserRepository from "../reposiotories/UsersRepository";
 
-interface Request {
+interface IRequest {
 	email: string;
 	password: string;
 	user_name: string;
@@ -19,7 +19,7 @@ class CreateUserService {
 		user_name,
 		avatar_url,
 		shop,
-	}: Request): Promise<User> {
+	}: IRequest): Promise<User> {
 		const userRepository = getCustomRepository(UserRepository);
 
 		const checkUserExists = await userRepository.findOne({

@@ -7,6 +7,6 @@ export default interface IFermentables {
 	// findByDate(date: Date): Promise<Fermentable | undefined>;
 	delete(id: string): Promise<string | undefined>;
 	// findById(id: string): Promise<Fermentable>;
-	// update(id: IUpdateFermentableDTO): Promise<Fermentable>;
+	update(id: IUpdateFermentableDTO): Promise<Fermentable>;
 	// findAll(): Promise<Fermentable[]>;
 }

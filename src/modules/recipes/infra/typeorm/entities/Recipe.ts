@@ -37,12 +37,16 @@ class Recipe {
 	@Column()
 	description: string;
 
+	@Column()
+	owner_id: string;
+
 	@ManyToOne(() => User)
 	@JoinColumn({ name: "owner_id" })
-	owner_id: User;
+	owner: User;
 
 	@OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {
 		cascade: true,
+		onUpdate: "CASCADE",
 		eager: true,
 	})
 	hops_recipe: HopsRecipe[];
@@ -52,6 +56,7 @@ class Recipe {
 		(fermentables_recipe) => fermentables_recipe.recipe_id,
 		{
 			cascade: true,
+			onUpdate: "CASCADE",
 			eager: true,
 		}
 	)
@@ -59,6 +64,7 @@ class Recipe {
 
 	@OneToMany(() => YeastsRecipe, (yeasts_recipe) => yeasts_recipe.recipe_id, {
 		cascade: true,
+		onUpdate: "CASCADE",
 		eager: true,
 	})
 	yeasts_recipe: YeastsRecipe[];

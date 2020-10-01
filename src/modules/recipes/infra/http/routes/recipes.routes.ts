@@ -3,9 +3,10 @@ import { getCustomRepository } from "typeorm";
 
 import ensureAuthenticated from "../../../../../middlewares/ensureAuthenticated";
 
-import RecipeRepositoy from "@modules/recipes/repositories/RecipeRepository";
+import RecipeRepository from "@modules/recipes/repositories/RecipeRepository";
 import CreateRecipeService from "@modules/recipes/services/CreateRecipeService";
 import UpdateRecipeService from "@modules/recipes/services/UpdateRecipeService";
+import DeleteRecipeService from "@modules/recipes/services/DeleteRecipeService";
 
 const recipeRoutes = Router();
 
@@ -42,16 +43,16 @@ recipeRoutes.post("/", async (request, response) => {
 });
 
 recipeRoutes.get("/", async (request, response) => {
-	const recipeRepositoy = getCustomRepository(RecipeRepositoy);
-	const recipe = await recipeRepositoy.find();
+	const recipeRepository = getCustomRepository(RecipeRepository);
+	const recipe = await recipeRepository.find();
 
 	response.json(recipe);
 });
 
 recipeRoutes.get("/:id", async (request, response) => {
 	const { id } = request.params;
-	const recipeRepositoy = getCustomRepository(RecipeRepositoy);
-	const recipe = await recipeRepositoy.find({ id: `${id}` });
+	const recipeRepository = getCustomRepository(RecipeRepository);
+	const recipe = await recipeRepository.find({ id: `${id}` });
 
 	response.json(recipe);
 });
@@ -89,11 +90,9 @@ recipeRoutes.put("/:id", async (request, response) => {
 recipeRoutes.delete("/:id", async (request, response) => {
 	const { id } = request.params;
 
-	const recipeRepository = getCustomRepository(RecipeRepositoy);
+	const deleteRecipe = new DeleteRecipeService();
 
-	await recipeRepository.delete({ id: `${id}` });
-
-	// TODO: create a service to handle this
+	await deleteRecipe.execute(id);
 
 	return response.json({ message: "Successful deleted" });
 });

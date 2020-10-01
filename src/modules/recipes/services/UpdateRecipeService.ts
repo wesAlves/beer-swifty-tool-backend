@@ -1,4 +1,3 @@
-import HopsRecipe from "@modules/hops/infra/typeorm/entities/HopsRecipe";
 import { getCustomRepository } from "typeorm";
 
 import Recipe from "../infra/typeorm/entities/Recipe";

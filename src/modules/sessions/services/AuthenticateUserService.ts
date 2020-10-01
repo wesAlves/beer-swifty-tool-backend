@@ -4,6 +4,7 @@ import { sign } from "jsonwebtoken";
 
 import authConfig from "@config/auth";
 import User from "@modules/users/infra/typeorm/entities/User";
+import AppError from "../../../errors/AppError";
 
 interface IRequest {
 	email: string;
@@ -22,11 +23,11 @@ class AuthenticateUserService {
 		const user = await userRepository.findOne({ where: { email } });
 
 		if (!user) {
-			throw new Error("Credencias inválidas");
+			throw new AppError("Credencias inválidas", 401);
 		}
 		const passwordMatched = await compare(password, user.password);
 		if (!passwordMatched) {
-			throw new Error("Credencias inválidas");
+			throw new AppError("Credencias inválidas", 401);
 		}
 
 		const { secret, expiresIn } = authConfig.jwt;

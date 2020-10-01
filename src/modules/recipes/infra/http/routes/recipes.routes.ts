@@ -4,7 +4,8 @@ import { getCustomRepository } from "typeorm";
 import ensureAuthenticated from "../../../../../middlewares/ensureAuthenticated";
 
 import RecipeRepositoy from "@modules/recipes/repositories/RecipeRepository";
-import CreateRecipeService from "@modules/recipes/services/CreateRecipe";
+import CreateRecipeService from "@modules/recipes/services/CreateRecipeService";
+import UpdateRecipeService from "@modules/recipes/services/UpdateRecipeService";
 
 const recipeRoutes = Router();
 
@@ -57,10 +58,32 @@ recipeRoutes.get("/:id", async (request, response) => {
 
 recipeRoutes.put("/:id", async (request, response) => {
 	const { id } = request.params;
+	const {
+		recipe_name,
+		hops,
+		fermentables,
+		yeasts,
+		srm,
+		og,
+		fg,
+		description,
+	} = request.body;
 
-	// TODO: create a service to handle this, and create the functionallity
+	const updateRecipe = new UpdateRecipeService();
 
-	return null;
+	const recipe = await updateRecipe.execute({
+		id,
+		recipe_name,
+		hops,
+		fermentables,
+		yeasts,
+		srm,
+		og,
+		fg,
+		description,
+	});
+
+	return recipe;
 });
 
 recipeRoutes.delete("/:id", async (request, response) => {

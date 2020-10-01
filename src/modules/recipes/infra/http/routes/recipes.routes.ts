@@ -83,7 +83,7 @@ recipeRoutes.put("/:id", async (request, response) => {
 		description,
 	});
 
-	return recipe;
+	return response.json(recipe);
 });
 
 recipeRoutes.delete("/:id", async (request, response) => {

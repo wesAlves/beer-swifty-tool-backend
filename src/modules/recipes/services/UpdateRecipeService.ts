@@ -27,7 +27,7 @@ class UpdateRecipeService {
 		og,
 		fg,
 		description,
-	}: IRequest): Promise<any> {
+	}: IRequest): Promise<Recipe> {
 		const recipeRepository = getCustomRepository(RecipeRepository);
 
 		const oldRecipe = await recipeRepository.findOne(
@@ -44,6 +44,7 @@ class UpdateRecipeService {
 		if (oldRecipe) {
 			// console.log(oldRecipe);
 			await recipeRepository.save({
+				id,
 				recipe_name,
 				hops_recipe: hops,
 				fermentables_recipe: fermentables,
@@ -55,9 +56,9 @@ class UpdateRecipeService {
 			});
 		}
 
-		const updatedRecipe = await recipeRepository.findOne({ id });
+		const updatedRecipe = await recipeRepository.find({ id: `${id}` });
 
-		return updatedRecipe;
+		return updatedRecipe[0];
 	}
 }
 

@@ -33,6 +33,11 @@ export class CreateBeerStyles1602528843558 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
+                        name: "og",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
                         name: "ibu",
                         type: "decimal",
                         isNullable: false,
@@ -51,6 +56,16 @@ export class CreateBeerStyles1602528843558 implements MigrationInterface {
                         name: "img_url",
                         type: "varchar",
                         isNullable: false,
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()",
+                    },
+                    {
+                        name: "updated_at",
+                        type: "timestamp",
+                        default: "now()",
                     },
                 ],
             })

@@ -70,14 +70,17 @@ class Recipe {
     })
     yeasts_recipe: YeastsRecipe[];
 
-    @ManyToOne(() => BeerStyle)
-    @JoinColumn({ name: "style_id" })
+    @Column()
     style_id: string;
 
-    @CreateDateColumn("timestamp")
+    @ManyToOne(() => BeerStyle)
+    @JoinColumn({ name: "style_id" })
+    style: BeerStyle;
+
+    @CreateDateColumn()
     created_at: Date;
 
-    @UpdateDateColumn("timestamp")
+    @UpdateDateColumn()
     updated_at: Date;
 }
 

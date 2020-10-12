@@ -35,10 +35,10 @@ class Hop {
     // @OneToMany(() => HopsRecipe, (hopsRecipe) => hopsRecipe.id)
     // hopsRecipe: HopsRecipe;
 
-    @CreateDateColumn("timestamp")
+    @CreateDateColumn()
     created_at: Date;
 
-    @UpdateDateColumn("timestamp")
+    @UpdateDateColumn()
     updated_at: Date;
 }
 

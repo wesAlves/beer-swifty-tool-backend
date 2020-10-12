@@ -24,6 +24,9 @@ class BeerStyles {
     fg: number;
 
     @Column("decimal")
+    og: number;
+
+    @Column("decimal")
     ibu: number;
 
     @Column("decimal")
@@ -35,9 +38,11 @@ class BeerStyles {
     @Column("decimal")
     img_url: number;
 
-    @CreateDateColumn("timestamp")
+    @CreateDateColumn()
     created_at: Date;
 
-    @UpdateDateColumn("timestamp")
+    @UpdateDateColumn()
     updated_at: Date;
 }
+
+export default BeerStyles;

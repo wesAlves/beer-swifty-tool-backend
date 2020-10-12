@@ -31,10 +31,10 @@ class User {
     @Column()
     shop: boolean;
 
-    @CreateDateColumn("timestamp")
+    @CreateDateColumn()
     created_at: Date;
 
-    @UpdateDateColumn("timestamp")
+    @UpdateDateColumn()
     updated_at: Date;
 }
 

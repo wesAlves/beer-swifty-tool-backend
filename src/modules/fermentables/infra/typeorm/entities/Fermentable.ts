@@ -32,10 +32,10 @@ class Fermentable {
     )
     fermentables_recipe: FermentablesRecipe[];
 
-    @CreateDateColumn("timeStamp")
+    @CreateDateColumn()
     created_at: Date;
 
-    @UpdateDateColumn("timeStamp")
+    @UpdateDateColumn()
     updated_at: Date;
 }
 

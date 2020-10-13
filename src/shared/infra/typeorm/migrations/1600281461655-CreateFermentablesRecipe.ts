@@ -1,10 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
+export class CreateFermentablesRecipe1600281461655
+    implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "yeasts_recipe",
+                name: "fermentables_recipe",
                 columns: [
                     {
                         name: "id",
@@ -13,40 +14,9 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
                         generationStrategy: "uuid",
                         default: "uuid_generate_v4()",
                     },
-
                     {
-                        name: "yeast_id",
+                        name: "fermentable_id",
                         type: "uuid",
-                        isNullable: true,
-                    },
-                    {
-                        name: "name",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "quantity",
-                        type: "decimal",
-                        isNullable: true,
-                    },
-                    {
-                        name: "attenuation",
-                        type: "decimal",
-                        isNullable: true,
-                    },
-                    {
-                        name: "cells_quantity",
-                        type: "decimal",
-                        isNullable: true,
-                    },
-                    {
-                        name: "manufacture",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "floculation",
-                        type: "decimal",
                         isNullable: true,
                     },
                     {
@@ -55,9 +25,24 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "starter",
-                        type: "boolean",
-                        default: false,
+                        name: "quantity",
+                        type: "decimal",
+                        isNullable: true,
+                    },
+                    {
+                        name: "potential",
+                        type: "decimal",
+                        isNullable: true,
+                    },
+                    {
+                        name: "color",
+                        type: "decimal",
+                        isNullable: true,
+                    },
+                    {
+                        name: "name",
+                        type: "varchar",
+                        isNullable: true,
                     },
                 ],
             })
@@ -65,6 +50,6 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("yeasts_recipe");
+        await queryRunner.dropTable("fermentables_recipe");
     }
 }

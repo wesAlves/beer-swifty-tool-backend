@@ -1,15 +1,11 @@
-import {
-    MigrationInterface,
-    QueryRunner,
-    Table,
-    TableForeignKey,
-} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateRecipes1599874376013 implements MigrationInterface {
+export default class CreateFermentables1599864039877
+    implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "recipes",
+                name: "fermentables",
                 columns: [
                     {
                         name: "id",
@@ -21,7 +17,6 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
-                        isNullable: false,
                     },
                     {
                         name: "color",
@@ -29,47 +24,32 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
-                        name: "og",
+                        name: "potential",
                         type: "decimal",
                         isNullable: false,
                     },
                     {
-                        name: "fg",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "abv",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "ibu",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "description",
+                        name: "manufacture",
                         type: "varchar",
                         isNullable: true,
                     },
                     {
-                        name: "img_url",
+                        name: "origin",
                         type: "varchar",
                         isNullable: true,
                     },
                     {
-                        name: "final_volume",
-                        type: "varchar",
-                        isNullable: false,
-                    },
-                    {
-                        name: "global_efficiency",
-                        type: "varchar",
+                        name: "water_percentage",
+                        type: "decimal",
                         isNullable: true,
                     },
                     {
-                        name: "notes",
+                        name: "protein_percentage",
+                        type: "decimal",
+                        isNullable: true,
+                    },
+                    {
+                        name: "diastatic_potential",
                         type: "varchar",
                         isNullable: true,
                     },
@@ -79,18 +59,8 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "privete",
-                        type: "boolean",
-                        default: false,
-                    },
-                    {
-                        name: "style_id",
-                        type: "uuid",
-                        isNullable: true,
-                    },
-                    {
-                        name: "user_id",
-                        type: "uuid",
+                        name: "description",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {
@@ -109,6 +79,6 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("recipes");
+        await queryRunner.dropTable("fermentables");
     }
 }

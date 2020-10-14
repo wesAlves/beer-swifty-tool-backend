@@ -20,7 +20,7 @@ export class CreateBeerStyles1602528843558 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "varchar",
+                        type: "char",
                         isNullable: true,
                     },
                     {
@@ -85,12 +85,12 @@ export class CreateBeerStyles1602528843558 implements MigrationInterface {
                     },
                     {
                         name: "created_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                     {
                         name: "updated_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                 ],

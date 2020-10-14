@@ -60,17 +60,17 @@ export default class CreateFermentables1599864039877
                     },
                     {
                         name: "description",
-                        type: "varchar",
+                        type: "char",
                         isNullable: true,
                     },
                     {
                         name: "created_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                     {
                         name: "updated_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                 ],

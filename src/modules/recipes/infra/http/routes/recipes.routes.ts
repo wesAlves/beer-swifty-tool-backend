@@ -23,6 +23,7 @@ recipeRoutes.post("/", async (request, response) => {
         og,
         fg,
         description,
+        style_id,
     } = request.body;
 
     const createRecipe = new CreateRecipeService();
@@ -37,6 +38,7 @@ recipeRoutes.post("/", async (request, response) => {
         og,
         fg,
         description,
+        style_id,
     });
 
     return response.json(recipe);
@@ -68,6 +70,7 @@ recipeRoutes.put("/:id", async (request, response) => {
         og,
         fg,
         description,
+        style_id,
     } = request.body;
 
     const updateRecipe = new UpdateRecipeService();
@@ -82,6 +85,7 @@ recipeRoutes.put("/:id", async (request, response) => {
         og,
         fg,
         description,
+        style_id,
     });
 
     return response.json(recipe);

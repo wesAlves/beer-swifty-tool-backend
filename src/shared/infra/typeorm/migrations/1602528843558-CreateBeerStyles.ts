@@ -1,15 +1,10 @@
-import {
-    MigrationInterface,
-    QueryRunner,
-    Table,
-    TableForeignKey,
-} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateRecipes1599874376013 implements MigrationInterface {
+export class CreateBeerStyles1602528843558 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "recipes",
+                name: "beer_styles",
                 columns: [
                     {
                         name: "id",
@@ -24,52 +19,7 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
-                        name: "color",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "og",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "fg",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "abv",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
-                        name: "ibu",
-                        type: "decimal",
-                        isNullable: false,
-                    },
-                    {
                         name: "description",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "img_url",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "final_volume",
-                        type: "varchar",
-                        isNullable: false,
-                    },
-                    {
-                        name: "global_efficiency",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "notes",
                         type: "varchar",
                         isNullable: true,
                     },
@@ -79,18 +29,58 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "privete",
-                        type: "boolean",
-                        default: false,
+                        name: "fg_initial",
+                        type: "decimal",
+                        isNullable: false,
                     },
                     {
-                        name: "style_id",
-                        type: "uuid",
-                        isNullable: true,
+                        name: "fg_final",
+                        type: "decimal",
+                        isNullable: false,
                     },
                     {
-                        name: "user_id",
-                        type: "uuid",
+                        name: "og_initial",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "og_final",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "ibu_initial",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "ibu_final",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "color_initial",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "color_final",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "abv_initial",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "abv_final",
+                        type: "decimal",
+                        isNullable: false,
+                    },
+                    {
+                        name: "img_url",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {
@@ -109,6 +99,6 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("recipes");
+        await queryRunner.dropTable("beer_styles");
     }
 }

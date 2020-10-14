@@ -14,13 +14,34 @@ class Fermentable {
     id: string;
 
     @Column()
-    fermentable_name: string;
+    name: string;
 
     @Column("decimal")
-    fermentable_color: number;
+    color: number;
 
     @Column("decimal")
-    fermentable_potential: number;
+    potential: number;
+
+    @Column()
+    manufacture: string;
+
+    @Column()
+    origin: string;
+
+    @Column("decimal")
+    water_percentage: number;
+
+    @Column("decimal")
+    protein_percentage: number;
+
+    @Column("decimal")
+    diastatic_potential: number;
+
+    @Column()
+    short_description: string;
+
+    @Column()
+    description: string;
 
     @OneToMany(
         () => FermentablesRecipe,

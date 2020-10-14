@@ -6,63 +6,91 @@ import ICreateFermentableDTO from "@modules/fermentables/dtos/ICreateFermentable
 import IUpdateFermentableDTO from "@modules/fermentables/dtos/IUpdateFermentableDTO";
 
 class FermentablesRepository implements IFermentablesRepository {
-	private ormRepository: Repository<Fermentable>;
+    private ormRepository: Repository<Fermentable>;
 
-	constructor() {
-		this.ormRepository = getRepository(Fermentable);
-	}
-	public async delete(id: string): Promise<undefined> {
-		await this.ormRepository.delete(id);
-		return undefined;
-	}
-	findById(id: string): Promise<Fermentable> {
-		throw new Error("Method not implemented.");
-	}
+    constructor() {
+        this.ormRepository = getRepository(Fermentable);
+    }
+    public async delete(id: string): Promise<undefined> {
+        await this.ormRepository.delete(id);
+        return undefined;
+    }
+    findById(id: string): Promise<Fermentable> {
+        throw new Error("Method not implemented.");
+    }
 
-	public async findByDate(date: Date): Promise<Fermentable | undefined> {
-		const findFermentable = await this.ormRepository.findOne({
-			where: { date },
-		});
-		return findFermentable;
-	}
+    public async findByDate(date: Date): Promise<Fermentable | undefined> {
+        const findFermentable = await this.ormRepository.findOne({
+            where: { date },
+        });
+        return findFermentable;
+    }
 
-	public async create({
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	}: ICreateFermentableDTO): Promise<Fermentable> {
-		const fermentable = this.ormRepository.create({
-			fermentable_name,
-			fermentable_color,
-			fermentable_potential,
-		});
+    public async create({
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    }: ICreateFermentableDTO): Promise<Fermentable> {
+        const fermentable = this.ormRepository.create({
+            name,
+            color,
+            potential,
+            manufacture,
+            origin,
+            water_percentage,
+            protein_percentage,
+            diastatic_potential,
+            short_description,
+            description,
+        });
 
-		await this.ormRepository.save(fermentable);
-		return fermentable;
-	}
+        await this.ormRepository.save(fermentable);
+        return fermentable;
+    }
 
-	public async update({
-		id,
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	}: IUpdateFermentableDTO): Promise<Fermentable> {
-		const fermentable = await this.ormRepository.update(id, {
-			fermentable_name,
-			fermentable_color,
-			fermentable_potential,
-		});
+    public async update({
+        id,
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    }: IUpdateFermentableDTO): Promise<Fermentable> {
+        const fermentable = await this.ormRepository.update(id, {
+            name,
+            color,
+            potential,
+            manufacture,
+            origin,
+            water_percentage,
+            protein_percentage,
+            diastatic_potential,
+            short_description,
+            description,
+        });
 
-		const updatedFermentable = await this.ormRepository.findByIds([id]);
+        const updatedFermentable = await this.ormRepository.findByIds([id]);
 
-		return updatedFermentable[0];
-	}
+        return updatedFermentable[0];
+    }
 
-	public async findAll() {
-		const fermentables = this.ormRepository.find();
+    public async findAll() {
+        const fermentables = this.ormRepository.find();
 
-		return fermentables;
-	}
+        return fermentables;
+    }
 }
 
 export default FermentablesRepository;

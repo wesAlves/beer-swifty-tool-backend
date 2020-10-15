@@ -46,8 +46,7 @@ class Recipe {
     owner: User;
 
     @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
         eager: true,
     })
     hops_recipe: HopsRecipe[];
@@ -56,16 +55,14 @@ class Recipe {
         () => FermentablesRecipe,
         (fermentables_recipe) => fermentables_recipe.recipe_id,
         {
-            cascade: true,
-            onUpdate: "CASCADE",
+            cascade: ["insert", "update"],
             eager: true,
         }
     )
     fermentables_recipe: FermentablesRecipe[];
 
     @OneToMany(() => YeastsRecipe, (yeasts_recipe) => yeasts_recipe.recipe_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
         eager: true,
     })
     yeasts_recipe: YeastsRecipe[];

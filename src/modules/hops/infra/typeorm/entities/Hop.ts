@@ -21,8 +21,7 @@ class Hop {
     name: string;
 
     @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.hop_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
     })
     recipes_hops: HopsRecipe[];
 

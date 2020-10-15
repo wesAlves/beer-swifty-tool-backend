@@ -47,8 +47,7 @@ class Fermentable {
         () => FermentablesRecipe,
         (maslts_recipe) => maslts_recipe.fermentable_id,
         {
-            cascade: true,
-            onUpdate: "CASCADE",
+            cascade: ["insert", "update"],
         }
     )
     fermentables_recipe: FermentablesRecipe[];

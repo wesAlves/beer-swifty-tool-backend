@@ -14,11 +14,19 @@ class Yeast {
     id: string;
 
     @Column()
-    yeast_name: string;
+    name: string;
+
+    @Column()
+    short_description: string;
+
+    @Column()
+    origin_style: string;
+
+    @Column()
+    description: string;
 
     @OneToMany(() => YeastsRecipe, (yeasts_recipe) => yeasts_recipe.yeast_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
     })
     yeasts_recipe: YeastsRecipe[];
 

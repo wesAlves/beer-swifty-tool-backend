@@ -23,7 +23,7 @@ class User {
     password: string;
 
     @Column()
-    user_name: string;
+    name: string;
 
     @Column()
     avatar_url: string;

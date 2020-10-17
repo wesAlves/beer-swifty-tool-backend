@@ -18,19 +18,36 @@ class Hop {
     id: string;
 
     @Column()
-    hop_name: string;
+    name: string;
 
     @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.hop_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
     })
     recipes_hops: HopsRecipe[];
 
     @Column("decimal")
-    hop_alpha_acid: number;
+    alpha_acid: number;
 
     @Column()
-    hop_type: string;
+    type: string;
+
+    @Column()
+    description: string;
+
+    @Column()
+    origin: string;
+
+    @Column("decimal")
+    cohulome: number;
+
+    @Column("decimal")
+    oil_total: number;
+
+    @Column("decimal")
+    beta_acid: number;
+
+    @Column()
+    short_description: string;
 
     // @OneToMany(() => HopsRecipe, (hopsRecipe) => hopsRecipe.id)
     // hopsRecipe: HopsRecipe;

@@ -4,44 +4,68 @@ import RecipeRepository from "../repositories/RecipeRepository";
 import Recipe from "../infra/typeorm/entities/Recipe";
 
 interface IRequest {
-    recipe_name: string;
-    owner_id: string;
+    name: string;
     hops: [];
     fermentables: [];
     yeasts: [];
-    srm: number;
+    color: number;
     og: number;
     fg: number;
+    abv: number;
+    ibu: number;
+    final_volume: number;
+    global_efficiency: number;
     description: string;
+    short_description: string;
+    notes: string;
+    is_private: boolean;
+    img_url: string;
     style_id: string;
+    user_id: string;
 }
 
 class CreateRecipeService {
     public async execute({
-        recipe_name,
-        owner_id,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        is_private,
+        img_url,
         style_id,
+        user_id,
     }: IRequest): Promise<Recipe> {
         const recipeRepository = getCustomRepository(RecipeRepository);
 
         const recipe = recipeRepository.create({
-            owner_id,
-            recipe_name,
+            name,
+            og,
+            fg,
+            abv,
+            color,
+            ibu,
+            final_volume,
+            global_efficiency,
+            description,
+            short_description,
+            is_private,
+            notes,
+            img_url,
+            style_id,
+            user_id,
             hops_recipe: hops,
             fermentables_recipe: fermentables,
             yeasts_recipe: yeasts,
-            srm,
-            og,
-            fg,
-            description,
-            style_id,
         });
 
         await recipeRepository.save(recipe);

@@ -43,7 +43,7 @@ export class CreateHops1599873433866 implements MigrationInterface {
                     },
                     {
                         name: "cohulome",
-                        type: "varchar",
+                        type: "decimal",
                         isNullable: true,
                     },
                     {
@@ -58,17 +58,17 @@ export class CreateHops1599873433866 implements MigrationInterface {
                     },
                     {
                         name: "short_description",
-                        type: "decimal",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {
                         name: "created_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                     {
                         name: "updated_at",
-                        type: "timestamp",
+                        type: "timestamp with time zone",
                         default: "now()",
                     },
                 ],

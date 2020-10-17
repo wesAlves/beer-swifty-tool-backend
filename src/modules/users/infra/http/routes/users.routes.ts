@@ -9,20 +9,18 @@ import DeleteUserService from "@modules/users/services/DeleteUserService";
 const userRoutes = Router();
 
 userRoutes.post("/", async (request, response) => {
-    const { email, password, user_name, avatar_url, shop } = request.body;
+    const { email, password, name, avatar_url, shop } = request.body;
 
     const createUser = new CreateUserService();
 
     const user = await createUser.execute({
         email,
         password,
-        user_name,
+        name,
         avatar_url,
         shop,
     });
-
-    delete user.password;
-
+    // eslint-disable-next-line no-use-before-define
     return response.json(user);
 });
 
@@ -36,7 +34,7 @@ userRoutes.get("/", async (request, reponse) => {
 
 userRoutes.put("/:id", async (request, response) => {
     const { id } = request.params;
-    const { email, password, user_name, avatar_url, shop } = request.body;
+    const { email, password, name, avatar_url, shop } = request.body;
 
     const updateUser = new UpdateUserService();
 
@@ -44,12 +42,10 @@ userRoutes.put("/:id", async (request, response) => {
         id,
         email,
         password,
-        user_name,
+        name,
         avatar_url,
         shop,
     });
-
-    delete user.password;
 
     return response.json(user);
 });

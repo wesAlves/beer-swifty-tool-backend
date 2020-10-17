@@ -5,29 +5,47 @@ import Hop from "../infra/typeorm/entities/Hop";
 import HopsRepository from "@modules/hops/repositories/HopsRepository";
 
 interface Request {
-  hop_name: string;
-  hop_alpha_acid: number;
-  hop_type: string;
+    name: string;
+    alpha_acid: number;
+    type: string;
+    description: string;
+    origin?: string;
+    cohulome?: number;
+    oil_total?: number;
+    beta_acid?: number;
+    short_description: string;
 }
 
 class CreateHopService {
-  public async execute({
-    hop_name,
-    hop_alpha_acid,
-    hop_type,
-  }: Request): Promise<Hop> {
-    const hopsRepository = getCustomRepository(HopsRepository);
+    public async execute({
+        name,
+        alpha_acid,
+        type,
+        description,
+        origin,
+        cohulome,
+        oil_total,
+        beta_acid,
+        short_description,
+    }: Request): Promise<Hop> {
+        const hopsRepository = getCustomRepository(HopsRepository);
 
-    const hop = hopsRepository.create({
-      hop_name,
-      hop_alpha_acid,
-      hop_type,
-    });
+        const hop = hopsRepository.create({
+            name,
+            alpha_acid,
+            type,
+            description,
+            origin,
+            cohulome,
+            oil_total,
+            beta_acid,
+            short_description,
+        });
 
-    await hopsRepository.save(hop);
+        await hopsRepository.save(hop);
 
-    return hop;
-  }
+        return hop;
+    }
 }
 
 export default CreateHopService;

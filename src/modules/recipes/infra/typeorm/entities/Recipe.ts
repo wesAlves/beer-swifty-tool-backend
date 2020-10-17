@@ -24,10 +24,10 @@ class Recipe {
     id: string;
 
     @Column()
-    recipe_name: string;
+    name: string;
 
     @Column("decimal")
-    srm: number;
+    color: number;
 
     @Column("decimal")
     og: number;
@@ -35,19 +35,42 @@ class Recipe {
     @Column("decimal")
     fg: number;
 
+    @Column("decimal")
+    ibu: number;
+
+    @Column("decimal")
+    abv: number;
+
+    @Column("decimal")
+    final_volume: number;
+
+    @Column("decimal")
+    global_efficiency: number;
+
     @Column()
     description: string;
 
     @Column()
-    owner_id: string;
+    short_description: string;
+
+    @Column()
+    notes: string;
+
+    @Column()
+    img_url: string;
+
+    @Column()
+    is_private: boolean;
+
+    @Column()
+    user_id: string;
 
     @ManyToOne(() => User)
-    @JoinColumn({ name: "owner_id" })
+    @JoinColumn({ name: "user_id" })
     owner: User;
 
     @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
         eager: true,
     })
     hops_recipe: HopsRecipe[];
@@ -56,16 +79,14 @@ class Recipe {
         () => FermentablesRecipe,
         (fermentables_recipe) => fermentables_recipe.recipe_id,
         {
-            cascade: true,
-            onUpdate: "CASCADE",
+            cascade: ["insert", "update"],
             eager: true,
         }
     )
     fermentables_recipe: FermentablesRecipe[];
 
     @OneToMany(() => YeastsRecipe, (yeasts_recipe) => yeasts_recipe.recipe_id, {
-        cascade: true,
-        onUpdate: "CASCADE",
+        cascade: ["insert", "update"],
         eager: true,
     })
     yeasts_recipe: YeastsRecipe[];

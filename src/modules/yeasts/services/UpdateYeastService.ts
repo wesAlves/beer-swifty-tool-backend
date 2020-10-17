@@ -4,23 +4,35 @@ import Yeast from "../infra/typeorm/entities/Yeast";
 
 import YeastRepository from "../repositories/YeastsRepository";
 
-interface Request {
-  id: string;
-  yeast_name: string;
+interface IRequest {
+    id: string;
+    name: string;
+    short_description: string;
+    origin_style: string;
+    description: string;
 }
 
 class UpdateYeastService {
-  public async execute({ id, yeast_name }: Request): Promise<Yeast> {
-    const yeastRepository = getCustomRepository(YeastRepository);
+    public async execute({
+        id,
+        name,
+        short_description,
+        origin_style,
+        description,
+    }: IRequest): Promise<Yeast> {
+        const yeastRepository = getCustomRepository(YeastRepository);
 
-    const yeast = yeastRepository.update(id, {
-      yeast_name,
-    });
+        const yeast = yeastRepository.update(id, {
+            name,
+            short_description,
+            origin_style,
+            description,
+        });
 
-    const updateYeast = await yeastRepository.find({ id: `${id}` });
+        const updateYeast = await yeastRepository.find({ id: `${id}` });
 
-    return updateYeast[0];
-  }
+        return updateYeast[0];
+    }
 }
 
 export default UpdateYeastService;

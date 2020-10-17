@@ -18,22 +18,37 @@ class BeerStyles {
     description: string;
 
     @Column()
-    history: string;
+    short_description: string;
 
     @Column("decimal")
-    fg: number;
+    fg_initial: number;
 
     @Column("decimal")
-    og: number;
+    fg_final: number;
 
     @Column("decimal")
-    ibu: number;
+    og_initial: number;
 
     @Column("decimal")
-    color: number;
+    og_final: number;
 
     @Column("decimal")
-    abv: number;
+    ibu_initial: number;
+
+    @Column("decimal")
+    ibu_final: number;
+
+    @Column("decimal")
+    color_initial: number;
+
+    @Column("decimal")
+    color_final: number;
+
+    @Column("decimal")
+    abv_initial: number;
+
+    @Column("decimal")
+    abv_final: number;
 
     @Column("decimal")
     img_url: number;

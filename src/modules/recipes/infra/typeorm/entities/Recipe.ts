@@ -60,7 +60,7 @@ class Recipe {
     img_url: string;
 
     @Column()
-    privete: boolean;
+    is_private: boolean;
 
     @Column()
     user_id: string;

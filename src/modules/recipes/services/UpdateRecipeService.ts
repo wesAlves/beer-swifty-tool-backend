@@ -19,7 +19,7 @@ interface IRequest {
     description: string;
     short_description: string;
     notes: string;
-    privete: boolean;
+    is_private: boolean;
     img_url: string;
     style_id: string;
     user_id: string;
@@ -42,7 +42,7 @@ class UpdateRecipeService {
         description,
         short_description,
         notes,
-        privete,
+        is_private,
         img_url,
         style_id,
         user_id,
@@ -75,7 +75,7 @@ class UpdateRecipeService {
                 description,
                 short_description,
                 notes,
-                privete,
+                is_private,
                 img_url,
                 style_id,
                 user_id,

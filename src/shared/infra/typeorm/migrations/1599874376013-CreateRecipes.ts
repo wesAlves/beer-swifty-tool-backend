@@ -65,7 +65,7 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                     },
                     {
                         name: "global_efficiency",
-                        type: "varchar",
+                        type: "decimal",
                         isNullable: true,
                     },
                     {
@@ -79,7 +79,7 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "privete",
+                        name: "is_private",
                         type: "boolean",
                         default: false,
                     },

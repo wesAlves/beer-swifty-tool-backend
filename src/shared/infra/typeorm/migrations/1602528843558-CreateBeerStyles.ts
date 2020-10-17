@@ -20,7 +20,7 @@ export class CreateBeerStyles1602528843558 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "char",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {

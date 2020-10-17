@@ -60,7 +60,7 @@ export default class CreateFermentables1599864039877
                     },
                     {
                         name: "description",
-                        type: "char",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {

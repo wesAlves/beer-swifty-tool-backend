@@ -33,7 +33,7 @@ export class CreateHops1599873433866 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "char",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {
@@ -43,7 +43,7 @@ export class CreateHops1599873433866 implements MigrationInterface {
                     },
                     {
                         name: "cohulome",
-                        type: "decinal",
+                        type: "decimal",
                         isNullable: true,
                     },
                     {

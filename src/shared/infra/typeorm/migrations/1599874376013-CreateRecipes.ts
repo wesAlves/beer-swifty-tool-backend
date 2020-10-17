@@ -50,7 +50,7 @@ export class CreateRecipes1599874376013 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "char",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {

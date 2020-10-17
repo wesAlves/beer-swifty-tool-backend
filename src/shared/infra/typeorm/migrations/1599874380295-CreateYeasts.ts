@@ -30,7 +30,7 @@ export class CreateYeasts1599874380295 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "char",
+                        type: "varchar",
                         isNullable: true,
                     },
                     {

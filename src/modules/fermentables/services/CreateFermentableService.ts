@@ -3,30 +3,51 @@ import IFermentablesRepository from "@modules/fermentables/repositories/IFrement
 import { injectable, inject } from "tsyringe";
 
 interface IRequest {
-	fermentable_name: string;
-	fermentable_color: number;
-	fermentable_potential: number;
+    name: string;
+    color: number;
+    potential: number;
+    manufacture?: string;
+    origin?: string;
+    water_percentage?: number;
+    protein_percentage?: number;
+    diastatic_potential?: number;
+    short_description: string;
+    description: string;
 }
 @injectable()
 class CreateFermentableService {
-	constructor(
-		@inject("FermentablesRepository")
-		private fermentablesRepository: IFermentablesRepository
-	) {}
+    constructor(
+        @inject("FermentablesRepository")
+        private fermentablesRepository: IFermentablesRepository
+    ) {}
 
-	public async execute({
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	}: IRequest): Promise<Fermentable> {
-		const fermentable = await this.fermentablesRepository.create({
-			fermentable_name,
-			fermentable_color,
-			fermentable_potential,
-		});
+    public async execute({
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    }: IRequest): Promise<Fermentable> {
+        const fermentable = await this.fermentablesRepository.create({
+            name,
+            color,
+            potential,
+            manufacture,
+            origin,
+            water_percentage,
+            protein_percentage,
+            diastatic_potential,
+            short_description,
+            description,
+        });
 
-		return fermentable;
-	}
+        return fermentable;
+    }
 }
 
 export default CreateFermentableService;

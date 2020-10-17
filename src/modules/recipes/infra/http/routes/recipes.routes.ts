@@ -14,31 +14,47 @@ const recipeRoutes = Router();
 
 recipeRoutes.post("/", async (request, response) => {
     const {
-        recipe_name,
-        owner_id,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        is_private,
+        img_url,
         style_id,
+        user_id,
     } = request.body;
 
     const createRecipe = new CreateRecipeService();
 
     const recipe = await createRecipe.execute({
-        recipe_name,
-        owner_id,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        is_private,
+        img_url,
         style_id,
+        user_id,
     });
 
     return response.json(recipe);
@@ -62,30 +78,48 @@ recipeRoutes.get("/:id", async (request, response) => {
 recipeRoutes.put("/:id", async (request, response) => {
     const { id } = request.params;
     const {
-        recipe_name,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        is_private,
+        img_url,
         style_id,
+        user_id,
     } = request.body;
 
     const updateRecipe = new UpdateRecipeService();
 
     const recipe = await updateRecipe.execute({
         id,
-        recipe_name,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        is_private,
+        img_url,
         style_id,
+        user_id,
     });
 
     return response.json(recipe);

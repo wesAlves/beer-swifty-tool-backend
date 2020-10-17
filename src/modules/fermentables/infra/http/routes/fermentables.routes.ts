@@ -9,59 +9,87 @@ import DeleteFermentableService from "@modules/fermentables/services/DeleteFerme
 const fermentablesRouter = Router();
 
 fermentablesRouter.post("/", async (request, response) => {
-	const {
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	} = request.body;
+    const {
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    } = request.body;
 
-	const createFermentable = container.resolve(CreateFermentableService);
+    const createFermentable = container.resolve(CreateFermentableService);
 
-	const fermentable = await createFermentable.execute({
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	});
+    const fermentable = await createFermentable.execute({
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    });
 
-	return response.json(fermentable);
+    return response.json(fermentable);
 });
 
 fermentablesRouter.get("/", async (request, response) => {
-	const fermentablesRepository = new FermentablesRepository();
+    const fermentablesRepository = new FermentablesRepository();
 
-	const fermentables = await fermentablesRepository.findAll();
+    const fermentables = await fermentablesRepository.findAll();
 
-	response.json(fermentables);
+    response.json(fermentables);
 });
 
 fermentablesRouter.put("/:id", async (request, response) => {
-	const { id } = request.params;
-	const {
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	} = request.body;
+    const { id } = request.params;
+    const {
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    } = request.body;
 
-	const updateFermentable = container.resolve(UpdateFermentableService);
+    const updateFermentable = container.resolve(UpdateFermentableService);
 
-	const fermentable = await updateFermentable.execute({
-		id,
-		fermentable_name,
-		fermentable_color,
-		fermentable_potential,
-	});
+    const fermentable = await updateFermentable.execute({
+        id,
+        name,
+        color,
+        potential,
+        manufacture,
+        origin,
+        water_percentage,
+        protein_percentage,
+        diastatic_potential,
+        short_description,
+        description,
+    });
 
-	return response.json(fermentable);
+    return response.json(fermentable);
 });
 
 fermentablesRouter.delete("/:id", async (request, response) => {
-	const { id } = request.params;
+    const { id } = request.params;
 
-	const deleteFermentable = container.resolve(DeleteFermentableService);
+    const deleteFermentable = container.resolve(DeleteFermentableService);
 
-	await deleteFermentable.execute(id);
+    await deleteFermentable.execute(id);
 
-	return response.status(204).send();
+    return response.status(204).send();
 });
 
 export default fermentablesRouter;

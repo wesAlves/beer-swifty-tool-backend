@@ -1,10 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
+export default class CreateFermentables1599864039877
+    implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "yeasts_recipe",
+                name: "fermentables",
                 columns: [
                     {
                         name: "id",
@@ -13,31 +14,19 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
                         generationStrategy: "uuid",
                         default: "uuid_generate_v4()",
                     },
-
-                    {
-                        name: "yeast_id",
-                        type: "uuid",
-                        isNullable: true,
-                    },
                     {
                         name: "name",
                         type: "varchar",
-                        isNullable: true,
                     },
                     {
-                        name: "quantity",
+                        name: "color",
                         type: "decimal",
-                        isNullable: true,
+                        isNullable: false,
                     },
                     {
-                        name: "attenuation",
+                        name: "potential",
                         type: "decimal",
-                        isNullable: true,
-                    },
-                    {
-                        name: "cells_quantity",
-                        type: "decimal",
-                        isNullable: true,
+                        isNullable: false,
                     },
                     {
                         name: "manufacture",
@@ -45,19 +34,44 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "floculation",
+                        name: "origin",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
+                        name: "water_percentage",
                         type: "decimal",
                         isNullable: true,
                     },
                     {
-                        name: "recipe_id",
-                        type: "uuid",
+                        name: "protein_percentage",
+                        type: "decimal",
                         isNullable: true,
                     },
                     {
-                        name: "starter",
-                        type: "boolean",
-                        default: false,
+                        name: "diastatic_potential",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
+                        name: "short_description",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
+                        name: "description",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp with time zone",
+                        default: "now()",
+                    },
+                    {
+                        name: "updated_at",
+                        type: "timestamp with time zone",
+                        default: "now()",
                     },
                 ],
             })
@@ -65,6 +79,6 @@ export class CreateYeastsRecipe1600281482818 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("yeasts_recipe");
+        await queryRunner.dropTable("fermentables");
     }
 }

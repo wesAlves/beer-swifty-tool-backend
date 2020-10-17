@@ -8,51 +8,83 @@ import UpdateHopService from "@modules/hops/services/UpdateHopService";
 const hopsRouter = Router();
 
 hopsRouter.get("/", async (request, response) => {
-  const hopsRepository = getCustomRepository(HopsRepository);
+    const hopsRepository = getCustomRepository(HopsRepository);
 
-  const hops = await hopsRepository.find();
+    const hops = await hopsRepository.find();
 
-  return response.json(hops);
+    return response.json(hops);
 });
 
 hopsRouter.post("/", async (request, response) => {
-  const { hop_name, hop_alpha_acid, hop_type } = request.body;
+    const {
+        name,
+        alpha_acid,
+        type,
+        description,
+        origin,
+        cohulome,
+        oil_total,
+        beta_acid,
+        short_description,
+    } = request.body;
 
-  const createHop = new CreateHopService();
+    const createHop = new CreateHopService();
 
-  const hop = await createHop.execute({
-    hop_name,
-    hop_alpha_acid,
-    hop_type,
-  });
+    const hop = await createHop.execute({
+        name,
+        alpha_acid,
+        type,
+        description,
+        origin,
+        cohulome,
+        oil_total,
+        beta_acid,
+        short_description,
+    });
 
-  return response.json(hop);
+    return response.json(hop);
 });
 
 hopsRouter.put("/:id", async (request, response) => {
-  const { id } = request.params;
-  const { hop_name, hop_alpha_acid, hop_type } = request.body;
+    const { id } = request.params;
+    const {
+        name,
+        alpha_acid,
+        type,
+        description,
+        origin,
+        cohulome,
+        oil_total,
+        beta_acid,
+        short_description,
+    } = request.body;
 
-  const updateHop = new UpdateHopService();
+    const updateHop = new UpdateHopService();
 
-  const hop = await updateHop.execute({
-    id,
-    hop_name,
-    hop_alpha_acid,
-    hop_type,
-  });
+    const hop = await updateHop.execute({
+        id,
+        name,
+        alpha_acid,
+        type,
+        description,
+        origin,
+        cohulome,
+        oil_total,
+        beta_acid,
+        short_description,
+    });
 
-  return response.json(hop);
+    return response.json(hop);
 });
 
 hopsRouter.delete("/:id", async (request, response) => {
-  const { id } = request.params;
+    const { id } = request.params;
 
-  const deleteHop = new DeleteHopService();
+    const deleteHop = new DeleteHopService();
 
-  await deleteHop.execute(id);
+    await deleteHop.execute(id);
 
-  return response.status(204).send();
+    return response.status(204).send();
 });
 
 export default hopsRouter;

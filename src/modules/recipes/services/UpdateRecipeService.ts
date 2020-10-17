@@ -5,29 +5,47 @@ import RecipeRepository from "../repositories/RecipeRepository";
 
 interface IRequest {
     id: string;
-    recipe_name: string;
+    name: string;
     hops: [];
     fermentables: [];
     yeasts: [];
-    srm: number;
+    color: number;
     og: number;
     fg: number;
+    abv: number;
+    ibu: number;
+    final_volume: number;
+    global_efficiency: number;
     description: string;
+    short_description: string;
+    notes: string;
+    privete: boolean;
+    img_url: string;
     style_id: string;
+    user_id: string;
 }
 
 class UpdateRecipeService {
     public async execute({
         id,
-        recipe_name,
+        name,
         hops,
         fermentables,
         yeasts,
-        srm,
+        color,
         og,
         fg,
+        abv,
+        ibu,
+        final_volume,
+        global_efficiency,
         description,
+        short_description,
+        notes,
+        privete,
+        img_url,
         style_id,
+        user_id,
     }: IRequest): Promise<Recipe> {
         const recipeRepository = getCustomRepository(RecipeRepository);
 
@@ -38,24 +56,32 @@ class UpdateRecipeService {
                     "hops_recipe",
                     "fermentables_recipe",
                     "yeasts_recipe",
-                    "style_id",
                 ],
             }
         );
 
         if (oldRecipe) {
-            // console.log(oldRecipe);
+            console.log(oldRecipe);
             await recipeRepository.save({
                 id,
-                recipe_name,
+                name,
+                color,
+                og,
+                fg,
+                abv,
+                ibu,
+                final_volume,
+                global_efficiency,
+                description,
+                short_description,
+                notes,
+                privete,
+                img_url,
+                style_id,
+                user_id,
                 hops_recipe: hops,
                 fermentables_recipe: fermentables,
                 yeasts_recipe: yeasts,
-                srm,
-                og,
-                fg,
-                description,
-                style_id,
             });
         }
 

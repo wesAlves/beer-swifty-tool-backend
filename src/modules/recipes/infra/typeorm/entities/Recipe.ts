@@ -24,10 +24,10 @@ class Recipe {
     id: string;
 
     @Column()
-    recipe_name: string;
+    name: string;
 
     @Column("decimal")
-    srm: number;
+    color: number;
 
     @Column("decimal")
     og: number;
@@ -35,14 +35,38 @@ class Recipe {
     @Column("decimal")
     fg: number;
 
+    @Column("decimal")
+    ibu: number;
+
+    @Column("decimal")
+    abv: number;
+
+    @Column("decimal")
+    final_volume: number;
+
+    @Column("decimal")
+    global_efficiency: number;
+
     @Column()
     description: string;
 
     @Column()
-    owner_id: string;
+    short_description: string;
+
+    @Column()
+    notes: string;
+
+    @Column()
+    img_url: string;
+
+    @Column()
+    privete: boolean;
+
+    @Column()
+    user_id: string;
 
     @ManyToOne(() => User)
-    @JoinColumn({ name: "owner_id" })
+    @JoinColumn({ name: "user_id" })
     owner: User;
 
     @OneToMany(() => HopsRecipe, (hops_recipe) => hops_recipe.recipe_id, {

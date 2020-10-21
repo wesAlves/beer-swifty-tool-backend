@@ -68,7 +68,7 @@ class CreateRecipeService {
             yeasts_recipe: yeasts,
         });
 
-        await recipeRepository.save(recipe);
+        // await recipeRepository.save(recipe);
 
         return recipe;
     }

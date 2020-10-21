@@ -2,6 +2,7 @@ import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 
 // import ensureAuthenticated from "../../../../../middlewares/ensureAuthenticated";
+import { CalculateRecipeAttributes } from "../middlewares/calculateRecipce";
 
 import RecipeRepository from "@modules/recipes/repositories/RecipeRepository";
 import CreateRecipeService from "@modules/recipes/services/CreateRecipeService";
@@ -11,20 +12,15 @@ import DeleteRecipeService from "@modules/recipes/services/DeleteRecipeService";
 const recipeRoutes = Router();
 
 // recipeRoutes.use(ensureAuthenticated);
+// recipeRoutes.use(CalculateRecipeAttributes);
 
-recipeRoutes.post("/", async (request, response) => {
+recipeRoutes.post("/", CalculateRecipeAttributes, async (request, response) => {
     const {
         name,
         hops,
         fermentables,
         yeasts,
-        color,
-        og,
-        fg,
-        abv,
-        ibu,
         final_volume,
-        global_efficiency,
         description,
         short_description,
         notes,
@@ -33,6 +29,8 @@ recipeRoutes.post("/", async (request, response) => {
         style_id,
         user_id,
     } = request.body;
+
+    const { color, og, fg, abv, ibu, global_efficiency } = request.recipe;
 
     const createRecipe = new CreateRecipeService();
 
@@ -77,16 +75,13 @@ recipeRoutes.get("/:id", async (request, response) => {
 
 recipeRoutes.put("/:id", async (request, response) => {
     const { id } = request.params;
+    const { color, og, fg, abv, ibu } = request.recipe;
+
     const {
         name,
         hops,
         fermentables,
         yeasts,
-        color,
-        og,
-        fg,
-        abv,
-        ibu,
         final_volume,
         global_efficiency,
         description,

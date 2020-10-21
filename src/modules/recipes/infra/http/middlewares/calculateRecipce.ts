@@ -24,14 +24,22 @@ export function CalculateRecipeAttributes(
 
     const fermentablesOG: number[] = [];
 
+    const fermentablesColor: number[] = [];
+
     fermentables.map((fermentable) => {
         const potential = (fermentable.potential - 1) * Math.pow(10, 3);
         const quantity = fermentable.quantity;
+        const colorSRM = fermentable.color;
+
+        const fermentableColorUnity =
+            (quantity * ((colorSRM + 0.6) / 1.35)) / final_volume;
 
         fermentablesYield.push(potential);
         fermentablesQuantity.push(quantity);
 
         fermentablesOG.push((potential * quantity) / final_volume);
+
+        fermentablesColor.push(fermentableColorUnity);
     });
 
     const reducer = (accumulator: number, currentValue: number) =>
@@ -44,7 +52,7 @@ export function CalculateRecipeAttributes(
 
     const og = fermentablesOG.reduce(reducer) * Math.pow(10, -3) + 1;
 
-    const color = 10;
+    const color = 1.4922 * Math.pow(fermentablesColor.reduce(reducer), 0.6859);
 
     const fg = 2;
 
@@ -54,6 +62,7 @@ export function CalculateRecipeAttributes(
 
     // console.log(global_efficiency);
     // console.log(mashEfficiency);
+    // console.log(color);
 
     request.recipe = { color, og, fg, abv, ibu, global_efficiency };
 

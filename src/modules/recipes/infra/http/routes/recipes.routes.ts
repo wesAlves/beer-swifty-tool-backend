@@ -28,9 +28,10 @@ recipeRoutes.post("/", CalculateRecipeAttributes, async (request, response) => {
         img_url,
         style_id,
         user_id,
+        global_efficiency,
     } = request.body;
 
-    const { color, og, fg, abv, ibu, global_efficiency } = request.recipe;
+    const { color, og, fg, abv, ibu } = request.recipe;
 
     const createRecipe = new CreateRecipeService();
 

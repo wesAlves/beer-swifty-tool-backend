@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from "express";
 interface IFermentables {
     fermentables: IFermentablesProps[];
     final_volume: number;
+    global_efficiency: number;
 }
 
 interface IFermentablesProps {
@@ -17,7 +18,11 @@ export function CalculateRecipeAttributes(
     response: Response,
     next: NextFunction
 ): void {
-    const { fermentables, final_volume }: IFermentables = request.body;
+    const {
+        fermentables,
+        final_volume,
+        global_efficiency,
+    }: IFermentables = request.body;
 
     const fermentablesQuantity: number[] = [];
     const fermentablesYield: number[] = [];
@@ -46,25 +51,28 @@ export function CalculateRecipeAttributes(
         accumulator + currentValue;
 
     // const mashExtractPotentialPPG =
-    //     (6 * 38) / fermentablesQuantity.reduce(reducer);
+    //     (final_volume * 38) / fermentablesQuantity.reduce(reducer);
 
-    const global_efficiency = (38 * 100) / fermentablesOG.reduce(reducer);
+    // const maxWortEfficiency = mashExtractPotentialPPG / 38;
 
-    const og = fermentablesOG.reduce(reducer) * Math.pow(10, -3) + 1;
+    const og =
+        fermentablesOG.reduce(reducer) *
+            (global_efficiency / 100) *
+            Math.pow(10, -3) +
+        1;
 
     const color = 1.4922 * Math.pow(fermentablesColor.reduce(reducer), 0.6859);
 
-    const fg = 2;
+    const fg = fermentablesOG.reduce(reducer) * 0.25 * Math.pow(10, -3) + 1;
 
     const abv = 3;
 
     const ibu = 5;
 
-    // console.log(global_efficiency);
-    // console.log(mashEfficiency);
-    // console.log(color);
+    // console.log(mashExtractPotentialPPG);
+    // console.log(maxWortEfficiency);
 
-    request.recipe = { color, og, fg, abv, ibu, global_efficiency };
+    request.recipe = { color, og, fg, abv, ibu };
 
     return next();
 }

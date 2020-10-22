@@ -10,7 +10,6 @@ declare namespace Express {
             fg: number;
             abv: number;
             ibu: number;
-            // global_efficiency: number;
         };
     }
 }

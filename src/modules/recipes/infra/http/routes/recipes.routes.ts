@@ -2,7 +2,8 @@ import { response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 
 // import ensureAuthenticated from "../../../../../middlewares/ensureAuthenticated";
-import { CalculateRecipeAttributes } from "../middlewares/calculateRecipce";
+import { CalculateRecipeIBU } from "../middlewares/calculateRecipeIBU";
+import { CalculateRecipeFermentablesAttributes } from "../middlewares/calculateRecipeGravity";
 
 import RecipeRepository from "@modules/recipes/repositories/RecipeRepository";
 import CreateRecipeService from "@modules/recipes/services/CreateRecipeService";
@@ -14,50 +15,55 @@ const recipeRoutes = Router();
 // recipeRoutes.use(ensureAuthenticated);
 // recipeRoutes.use(CalculateRecipeAttributes);
 
-recipeRoutes.post("/", CalculateRecipeAttributes, async (request, response) => {
-    const {
-        name,
-        hops,
-        fermentables,
-        yeasts,
-        final_volume,
-        description,
-        short_description,
-        notes,
-        is_private,
-        img_url,
-        style_id,
-        user_id,
-        global_efficiency,
-    } = request.body;
+recipeRoutes.post(
+    "/",
+    CalculateRecipeFermentablesAttributes,
+    CalculateRecipeIBU,
+    async (request, response) => {
+        const {
+            name,
+            hops,
+            fermentables,
+            yeasts,
+            final_volume,
+            description,
+            short_description,
+            notes,
+            is_private,
+            img_url,
+            style_id,
+            user_id,
+            global_efficiency,
+        } = request.body;
 
-    const { color, og, fg, abv, ibu } = request.recipe;
+        const { color, og, fg, abv, ibu } = request.recipe;
 
-    const createRecipe = new CreateRecipeService();
+        const createRecipe = new CreateRecipeService();
 
-    const recipe = await createRecipe.execute({
-        name,
-        hops,
-        fermentables,
-        yeasts,
-        color,
-        og,
-        fg,
-        abv,
-        ibu,
-        final_volume,
-        global_efficiency,
-        description,
-        short_description,
-        notes,
-        is_private,
-        img_url,
-        style_id,
-        user_id,
-    });
+        const recipe = await createRecipe.execute({
+            name,
+            hops,
+            fermentables,
+            yeasts,
+            color,
+            og,
+            fg,
+            abv,
+            ibu,
+            final_volume,
+            global_efficiency,
+            description,
+            short_description,
+            notes,
+            is_private,
+            img_url,
+            style_id,
+            user_id,
+        });
 
-    return response.json(recipe);
-});
+        return response.json(recipe);
+    }
+);
 
 recipeRoutes.get("/", async (request, response) => {
     const recipeRepository = getCustomRepository(RecipeRepository);

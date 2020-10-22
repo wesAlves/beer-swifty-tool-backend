@@ -1,7 +1,7 @@
 import Fermentable from "@modules/fermentables/infra/typeorm/entities/Fermentable";
 import { Request, Response, NextFunction } from "express";
 
-interface IFermentables {
+interface ICalc {
     fermentables: IFermentablesProps[];
     final_volume: number;
     global_efficiency: number;
@@ -13,7 +13,7 @@ interface IFermentablesProps {
     quantity: number;
 }
 
-export function CalculateRecipeAttributes(
+export function CalculateRecipeFermentablesAttributes(
     request: Request,
     response: Response,
     next: NextFunction
@@ -22,7 +22,7 @@ export function CalculateRecipeAttributes(
         fermentables,
         final_volume,
         global_efficiency,
-    }: IFermentables = request.body;
+    }: ICalc = request.body;
 
     const fermentablesQuantity: number[] = [];
     const fermentablesYield: number[] = [];
@@ -36,13 +36,16 @@ export function CalculateRecipeAttributes(
         const quantity = fermentable.quantity;
         const colorSRM = fermentable.color;
 
+        const gallonVolume = final_volume / 3.785;
+        const poundQuantity = quantity * 2.205;
+
         const fermentableColorUnity =
-            (quantity * ((colorSRM + 0.6) / 1.35)) / final_volume;
+            (poundQuantity * ((colorSRM + 0.6) / 1.35)) / gallonVolume;
 
         fermentablesYield.push(potential);
-        fermentablesQuantity.push(quantity);
+        fermentablesQuantity.push(poundQuantity);
 
-        fermentablesOG.push((potential * quantity) / final_volume);
+        fermentablesOG.push((potential * poundQuantity) / gallonVolume);
 
         fermentablesColor.push(fermentableColorUnity);
     });
@@ -53,7 +56,7 @@ export function CalculateRecipeAttributes(
     // const mashExtractPotentialPPG =
     //     (final_volume * 38) / fermentablesQuantity.reduce(reducer);
 
-    // const maxWortEfficiency = mashExtractPotentialPPG / 38;
+    // const maxWortEfficiency = mashExtractPotentialPPG / 38; If it not becomes useful delete
 
     const og =
         fermentablesOG.reduce(reducer) *
@@ -63,14 +66,11 @@ export function CalculateRecipeAttributes(
 
     const color = 1.4922 * Math.pow(fermentablesColor.reduce(reducer), 0.6859);
 
-    const fg = fermentablesOG.reduce(reducer) * 0.25 * Math.pow(10, -3) + 1;
+    const fg = fermentablesOG.reduce(reducer) * 0.2 * Math.pow(10, -3) + 1;
 
-    const abv = 3;
+    const abv = (og - fg) * 131.25;
 
-    const ibu = 5;
-
-    // console.log(mashExtractPotentialPPG);
-    // console.log(maxWortEfficiency);
+    const ibu = 0;
 
     request.recipe = { color, og, fg, abv, ibu };
 

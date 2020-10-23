@@ -13,7 +13,6 @@ import DeleteRecipeService from "@modules/recipes/services/DeleteRecipeService";
 const recipeRoutes = Router();
 
 // recipeRoutes.use(ensureAuthenticated);
-// recipeRoutes.use(CalculateRecipeAttributes);
 
 recipeRoutes.post(
     "/",

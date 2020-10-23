@@ -8,11 +8,11 @@ interface IRequest {
     hops: [];
     fermentables: [];
     yeasts: [];
-    color: number;
-    og: number;
-    fg: number;
-    abv: number;
-    ibu: number;
+    color: number | undefined;
+    og: number | undefined;
+    fg: number | undefined;
+    abv: number | undefined;
+    ibu: number | undefined;
     final_volume: number;
     global_efficiency: number;
     description: string;
@@ -68,7 +68,7 @@ class CreateRecipeService {
             yeasts_recipe: yeasts,
         });
 
-        await recipeRepository.save(recipe);
+        // await recipeRepository.save(recipe);
 
         return recipe;
     }

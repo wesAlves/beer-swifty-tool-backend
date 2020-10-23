@@ -16,11 +16,11 @@ class HopsRecipe {
 
     @ManyToOne(() => Recipe, (recipe) => recipe.hops_recipe)
     @JoinColumn({ name: "recipe_id" })
-    recipe_id: Recipe[];
+    recipe_id: Recipe;
 
     @ManyToOne(() => Hop, (hop) => hop.recipes_hops)
     @JoinColumn({ name: "hop_id" })
-    hop_id: Hop[];
+    hop_id: Hop;
 
     @Column("decimal")
     quantity: number;

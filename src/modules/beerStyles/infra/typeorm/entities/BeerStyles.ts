@@ -1,63 +1,162 @@
 import {
-    Column,
-    PrimaryGeneratedColumn,
-    Entity,
-    CreateDateColumn,
-    UpdateDateColumn,
-} from "typeorm";
+  Column,
+  PrimaryGeneratedColumn,
+  Entity,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity("beer_styles")
+@Entity('beer_styles')
 class BeerStyles {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    description: string;
+  @Column()
+  description: string;
 
-    @Column()
-    short_description: string;
+  @Column()
+  short_description: string;
 
-    @Column("decimal")
-    fg_initial: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  fg_initial: number;
 
-    @Column("decimal")
-    fg_final: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  fg_final: number;
 
-    @Column("decimal")
-    og_initial: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  og_initial: number;
 
-    @Column("decimal")
-    og_final: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  og_final: number;
 
-    @Column("decimal")
-    ibu_initial: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  ibu_initial: number;
 
-    @Column("decimal")
-    ibu_final: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  ibu_final: number;
 
-    @Column("decimal")
-    color_initial: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  color_initial: number;
 
-    @Column("decimal")
-    color_final: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  color_final: number;
 
-    @Column("decimal")
-    abv_initial: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  abv_initial: number;
 
-    @Column("decimal")
-    abv_final: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  abv_final: number;
 
-    @Column("decimal")
-    img_url: number;
+  @Column('decimal', {
+    transformer: {
+      to(value) {
+        return value;
+      },
+      from(value) {
+        return parseFloat(value);
+      },
+    },
+  })
+  img_url: number;
 
-    @CreateDateColumn()
-    created_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    @UpdateDateColumn()
-    updated_at: Date;
+  @UpdateDateColumn()
+  updated_at: Date;
 }
 
 export default BeerStyles;

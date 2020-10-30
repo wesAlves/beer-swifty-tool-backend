@@ -26,10 +26,12 @@ export function CalculateRecipeFermentablesAttributes(
 
     const fermentablesQuantity: number[] = [];
     const fermentablesYield: number[] = [];
-
     const fermentablesOG: number[] = [];
-
     const fermentablesColor: number[] = [];
+    const fermentablesPercentage: number[] = [];
+
+
+
 
     fermentables.map((fermentable) => {
         const potential = (fermentable.potential - 1) * Math.pow(10, 3);
@@ -71,6 +73,13 @@ export function CalculateRecipeFermentablesAttributes(
     const abv = (og - fg) * 131.25;
 
     const ibu = 0;
+
+    fermentablesQuantity.map(quantity => {
+        const percentage = quantity * 100 / (fermentablesQuantity.reduce(reducer));
+
+        fermentablesPercentage.push(percentage)
+            
+    });
 
     request.recipe = { color, og, fg, abv, ibu };
 

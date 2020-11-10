@@ -9,11 +9,7 @@ interface IRequest {
     hops: [];
     fermentables: [];
     yeasts: [];
-    color: number;
-    og: number;
-    fg: number;
-    abv: number;
-    ibu: number;
+    
     final_volume: number;
     global_efficiency: number;
     description: string;
@@ -32,11 +28,6 @@ class UpdateRecipeService {
         hops,
         fermentables,
         yeasts,
-        color,
-        og,
-        fg,
-        abv,
-        ibu,
         final_volume,
         global_efficiency,
         description,
@@ -65,11 +56,6 @@ class UpdateRecipeService {
             await recipeRepository.save({
                 id,
                 name,
-                color,
-                og,
-                fg,
-                abv,
-                ibu,
                 final_volume,
                 global_efficiency,
                 description,

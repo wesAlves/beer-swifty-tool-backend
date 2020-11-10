@@ -81,7 +81,7 @@ recipeRoutes.get("/:id", async (request, response) => {
 
 recipeRoutes.put("/:id", async (request, response) => {
     const { id } = request.params;
-    const { color, og, fg, abv, ibu } = request.recipe;
+    // const { color, og, fg, abv, ibu } = request.recipe;
 
     const {
         name,
@@ -107,11 +107,6 @@ recipeRoutes.put("/:id", async (request, response) => {
         hops,
         fermentables,
         yeasts,
-        color,
-        og,
-        fg,
-        abv,
-        ibu,
         final_volume,
         global_efficiency,
         description,
